@@ -24,8 +24,13 @@ const FooterFramework = ({
         {children}
       </div>
       <div className="px-4 py-6 md:flex md:items-center md:justify-between">
-        <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a href="https://flowbite.com/">Plum Technology</a>. All Rights Reserved.
-        </span>
+        <div className="space-x-5">
+          <span className="text-sm text-gray-500 dark:text-gray-300">© 2024 <a href="https://liplum.net">Plum Technology</a>. All Rights Reserved.
+          </span>
+
+          <span className="text-sm text-gray-500 dark:text-gray-300"><a href="https://beian.miit.gov.cn/">沪ICP备2024077945号-2</a>
+          </span>
+        </div>
         <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
           <QuickContactButton
             desc="GitHub"
