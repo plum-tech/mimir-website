@@ -4,7 +4,8 @@ import { ReactNode } from "react";
 const actions = [{
   title: "应用下载",
   desc: "下载最新版小应生活App，适用于 iOS 和 Android",
-  href: "/download",
+  // href: "/download",
+  href: "https://g.mysit.life/",
 }, {
   title: "联系我们",
   desc: "与我们取得联系，电子邮箱，QQ群，微信公众号",
@@ -12,7 +13,7 @@ const actions = [{
 }, {
   title: "关于我们",
   desc: "了解小应生活与我们团队",
-  href: "/contact",
+  href: "/about",
 }]
 
 export default function Home() {
