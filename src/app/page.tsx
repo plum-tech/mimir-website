@@ -1,6 +1,20 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 
+const actions = [{
+  title: "应用下载",
+  desc: "下载最新版小应生活App，适用于 iOS 和 Android",
+  href: "/download",
+}, {
+  title: "联系我们",
+  desc: "与我们取得联系，电子邮箱，QQ群，微信公众号",
+  href: "/contact",
+}, {
+  title: "关于我们",
+  desc: "了解小应生活与我们团队",
+  href: "/contact",
+}]
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -36,8 +50,16 @@ export default function Home() {
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <DownloadButton />
-        <ContactUsButton />
+        {
+          actions.map(action => (
+            <ActionButton
+              key={action.title}
+              title={action.title}
+              desc={action.desc}
+              url={action.href}
+            />
+          ))
+        }
       </div>
     </main>
   );
@@ -65,21 +87,4 @@ const ActionButton = ({
       {desc}
     </p>
   </a>
-}
-
-const DownloadButton = () => {
-  return <ActionButton
-    title="应用下载"
-    desc="下载最新版小应生活App，适用于 iOS 和 Android"
-    url="/download"
-  />
-}
-
-
-const ContactUsButton = () => {
-  return <ActionButton
-    title="联系我们"
-    desc="与我们取得联系，电子邮箱，QQ群，微信公众号"
-    url="/contact"
-  />
 }
