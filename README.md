@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SIT Life Website
 
-## Getting Started
+## How to contribute
 
-First, run the development server:
+### Install dependencies
+
+You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run the development server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### How to deploy
 
-## Learn More
+First, make a directory as working directory.
 
-To learn more about Next.js, take a look at the following resources:
+Create a `docker-compose.yaml` file under the working directory, and copy-paste the following contents.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```yaml
+services:
+  website:
+    image: ghcr.io/liplum-dev/mimir-website:latest # not yet prepared
+    container_name: mimir-website
+    expose:
+      - 3000
+    restart: always
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certs:/etc/certs
+    restart: always
+    depends_on:
+      - mimir-website
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
 
-## Deploy on Vercel
+Then, create a `nginx.conf` file under the working directory, and copy-paste the following contents.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```nginx
+server {
+  listen 80;
+  server_name mysit.life;
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  location / {
+    return 301 https://$host$request_uri;
+  }
+}
+
+server {
+  listen 443 ssl;
+  server_name mysit.life;
+
+  ssl_certificate /etc/certs/public.crt;
+  ssl_certificate_key /etc/certs/private.key;
+
+  location / {
+    proxy_pass http://mimir-website:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+```
+
+After that, copy-paste the SSL certificate files of `mysit.life` to `public.crt` and `private.key` under the working directory.
+
+Finally, run the command below to start the server.
+
+```bash
+docker compose up --detach
+```
+
+Running the command below can stop the server.
+
+```bash
+docker compose down
+```
