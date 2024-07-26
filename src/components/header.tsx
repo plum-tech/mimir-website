@@ -14,28 +14,28 @@ import {
 } from '@headlessui/react'
 
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import {
+  ChevronDownIcon
+} from '@heroicons/react/20/solid'
 
 export interface HeaderTab {
-  name: string
+  label: string
   href?: string
-  popover?: TabPopover
+  popover?: TabPopover[]
 }
 
 export interface TabPopover {
-
+  label: string
+  desc?: string
+  icon?: ReactNode
+  href?: string
 }
 
 export interface HeaderLeading {
-  icon: ReactNode
+  icon?: ReactNode
   desc?: string
   href?: string
 }
@@ -47,13 +47,13 @@ export interface HeaderTrailing {
 
 const Tab = ({ href, popover, children }: {
   href?: string
-  popover?: TabPopover
+  popover?: TabPopover[]
   children: ReactNode
 }) => {
   let label = <a href={href} className="text-sm font-semibold leading-6 text-gray-300">
     {children}
   </a>
-  if (popover) {
+  if (popover?.length) {
     label = (
       <Popover className="relative">
         <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-300">
@@ -65,37 +65,25 @@ const Tab = ({ href, popover, children }: {
           transition
           className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
         >
-          {/* <div className="p-4">
-            {products.map((item) => (
+          <div className="p-4">
+            {popover.map((item) => (
               <div
-                key={item.name}
+                key={item.label}
                 className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 text-gray-300"
               >
                 <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg">
-                  <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" />
+                  {item.icon}
                 </div>
                 <div className="flex-auto">
                   <a href={item.href} className="block font-semibold">
-                    {item.name}
+                    {item.label}
                     <span className="absolute inset-0" />
                   </a>
-                  <p className="mt-1">{item.description}</p>
+                  <p className="mt-1">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-            {callsToAction.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-300 hover:bg-gray-100"
-              >
-                <item.icon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
-                {item.name}
-              </a>
-            ))}
-          </div> */}
         </PopoverPanel>
       </Popover>
     )
@@ -105,7 +93,7 @@ const Tab = ({ href, popover, children }: {
 
 const Floating = ({ href, popover, children }: {
   href?: string
-  popover?: TabPopover
+  popover?: TabPopover[]
   children: ReactNode
 }) => {
   let label = <a
@@ -150,7 +138,7 @@ const BrandIcon = ({ children, desc, href }: {
   </a>
 }
 
-export default function TabHeader({ leading, tabs, trailing }: {
+export default function HeaderFramework({ leading, tabs, trailing }: {
   leading?: HeaderLeading
   tabs: HeaderTab[]
   trailing?: HeaderTrailing
@@ -164,10 +152,6 @@ export default function TabHeader({ leading, tabs, trailing }: {
           {leading && <BrandIcon href={leading.href} desc={leading.desc}>
             {leading.icon}
           </BrandIcon>}
-          {leading && <a href={leading.href} className="-m-1.5 p-1.5">
-            {leading.desc && <span className="sr-only">{leading.desc}</span>}
-            {leading.icon}
-          </a>}
         </div>
         <div className="flex lg:hidden">
           <button
@@ -183,9 +167,10 @@ export default function TabHeader({ leading, tabs, trailing }: {
           {tabs &&
             tabs.map((tab) => (
               <Tab
-                key={tab.name}
+                key={tab.label}
+                popover={tab.popover}
                 href={tab.href}
-              >{tab.name}</Tab>
+              >{tab.label}</Tab>
             ))
           }
         </PopoverGroup>
@@ -216,7 +201,11 @@ export default function TabHeader({ leading, tabs, trailing }: {
               <div className="space-y-2 py-6">
                 {tabs &&
                   tabs.map((tab) => (
-                    <Floating key={tab.name}>{tab.name}</Floating>
+                    <Floating
+                      key={tab.label}
+                      popover={tab.popover}
+                      href={tab.href}
+                    >{tab.label}</Floating>
                   ))
                 }
               </div>
