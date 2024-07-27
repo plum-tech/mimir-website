@@ -51,7 +51,7 @@ const ContactBox = ({
 }) => {
   return <a
     href={href}
-    className="group rounded-lg border border-transparent px-5 py-4 transition-colors border-gray-300 bg-gray-100 border-neutral-700 bg-neutral-800/30"
+    className="group rounded-lg border border-transparent px-5 py-4 transition-colors border-gray-300 bg-gray-100 border-neutral-500 bg-neutral-800/30"
     target="_blank"
   >
     <h2 className="mb-3 text-2xl font-semibold">
