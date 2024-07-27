@@ -17,7 +17,7 @@ const sections: FooterSection[] = [{
     label: "联系我们",
     href: "/contact",
   }, {
-    label: "关于",
+    label: "关于我们",
     href: "/about",
   },]
 },]
