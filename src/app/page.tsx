@@ -17,6 +17,7 @@ const actions = [{
 }]
 import MainFramework from "@/components/main"
 import Title from "@/components/title";
+import HomeButton from "@/components/home-button";
 
 export default function Home() {
   return (
@@ -29,11 +30,11 @@ export default function Home() {
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         {
           actions.map(action => (
-            <ActionButton
+            <HomeButton
               key={action.title}
               title={action.title}
               href={action.href}
-            >{action.desc}</ActionButton>
+            >{action.desc}</HomeButton>
           ))
         }
       </div>
@@ -41,26 +42,3 @@ export default function Home() {
   );
 }
 
-const ActionButton = ({
-  title, href, children,
-}: {
-  title: ReactNode
-  children: ReactNode
-  href?: string
-}) => {
-  return <a
-    href={href}
-    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    rel="noopener noreferrer"
-  >
-    <h2 className="mb-3 text-2xl font-semibold">
-      {`${title} `}
-      {href && <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-        -&gt;
-      </span>}
-    </h2>
-    <p className="m-0 max-w-[30ch] text-sm opacity-60">
-      {children}
-    </p>
-  </a>
-}
