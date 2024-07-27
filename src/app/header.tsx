@@ -13,12 +13,15 @@ const tabs: HeaderTab[] = [{
     href: "https://g.mysit.life/ios/",
   },]
 }, {
+  label: "小应社区",
+  href: "https://bbs.mysit.life",
+}, {
   label: "联系我们",
   href: "/contact",
 }, {
   label: "关于",
   href: "/about",
-}]
+},]
 const leading: HeaderLeading = {
   icon: <Image
     className="h-8 w-auto"

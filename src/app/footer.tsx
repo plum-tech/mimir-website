@@ -20,11 +20,17 @@ const sections: FooterSection[] = [{
     label: "关于我们",
     href: "/about",
   },]
-},]
+}, {
+  label: "反馈",
+  items: [{
+    label: "意见反馈",
+    href: "/feedback",
+  },],
+}]
 const quickContacts: QuickContact[] = [{
   desc: "GitHub",
   href: "https://github.com/liplum-dev/mimir-website",
-  icon: <SiGithub/>,
+  icon: <SiGithub />,
 }]
 
 export default function Footer() {

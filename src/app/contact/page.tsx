@@ -10,7 +10,7 @@ export default function Page() {
         desc="如需洽谈合作、咨询相关事宜，欢迎通过以下方式联系我们"
       />
 
-      <div className="mb-32 grid gap-4 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <HomeButton
           title="电子邮箱"
           href="mailto:mimir@liplum.net">
@@ -29,7 +29,7 @@ export default function Page() {
           href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzk0NDYyNjY0Nw==#wechat_redirect"
           title="微信公众号">
           <span className="text-gray-200">
-            {'打开微信搜索"小应生活"，关注我们'}
+            {'打开微信搜索"小应生活"，关注我们，掌握第一手资讯'}
           </span>
           {/* <span className="text-gray-200">
             请打开微信扫描下方二维码，关注我们的微信公众号

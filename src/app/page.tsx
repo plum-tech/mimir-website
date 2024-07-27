@@ -1,5 +1,6 @@
-import Image from "next/image";
-import { ReactNode } from "react";
+import MainFramework from "@/components/main"
+import Title from "@/components/title";
+import HomeButton from "@/components/home-button";
 
 const actions = [{
   title: "应用下载",
@@ -8,16 +9,17 @@ const actions = [{
   href: "https://g.mysit.life/",
 }, {
   title: "联系我们",
-  desc: "与我们取得联系，电子邮箱，QQ群，微信公众号",
+  desc: "通过以下方式与我们联系：电子邮箱、QQ群、微信公众号",
   href: "/contact",
 }, {
+  title: "意见反馈",
+  desc: "欢迎您提出宝贵的建议，反馈遇到的问题，帮助我们改进小应生活",
+  href: "/feedback",
+}, {
   title: "关于我们",
-  desc: "了解小应生活与我们团队",
+  desc: "深入了解小应生活及其背后的团队",
   href: "/about",
-}]
-import MainFramework from "@/components/main"
-import Title from "@/components/title";
-import HomeButton from "@/components/home-button";
+},]
 
 export default function Home() {
   return (
