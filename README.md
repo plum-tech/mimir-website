@@ -24,7 +24,7 @@ Create a `docker-compose.yaml` file under the working directory, and copy-paste 
 
 ```yaml
 services:
-  website:
+  mimir-website:
     image: ghcr.io/liplum-dev/mimir-website:latest # not yet prepared
     container_name: mimir-website
     expose:

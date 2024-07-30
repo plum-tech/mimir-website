@@ -14,7 +14,7 @@ const tabs: HeaderTab[] = [{
   },]
 }, {
   label: "小应社区",
-  href: "https://bbs.mysit.life",
+  href: "https://forum.mysit.life",
 }, {
   label: "联系我们",
   href: "/contact",
