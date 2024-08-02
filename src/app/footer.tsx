@@ -39,9 +39,13 @@ export default function Footer() {
       sections={sections}
       quickContacts={quickContacts}
     >
-      <>© 2024 <a href="https://liplum.net">Plum Technology</a>. All Rights Reserved. </>
+      <>© 2024 <a href="https://liplum.net"
+        className="underline"
+      >Plum Technology</a>. All Rights Reserved. </>
       <br />
-      <a href="https://beian.miit.gov.cn/">沪ICP备2024077945号-2</a>
+      <a href="https://beian.miit.gov.cn"
+        className="underline"
+      >沪ICP备2024077945号-2</a>
     </FooterFramework>
   </div>
 }

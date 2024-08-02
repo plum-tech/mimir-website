@@ -50,26 +50,26 @@ const Tab = ({ href, popover, children }: {
   popover?: TabPopover[]
   children: ReactNode
 }) => {
-  let label = <a href={href} className="text-sm font-semibold leading-6 text-gray-300">
+  let label = <a href={href} className="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300">
     {children}
   </a>
   if (popover?.length) {
     label = (
       <Popover className="relative">
-        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-300">
+        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300">
           {children}
           <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
         </PopoverButton>
 
         <PopoverPanel
           transition
-          className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in bg-gray-400/10"
+          className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-gray-900/10 dark:bg-gray-400/10"
         >
           <div className="p-4">
             {popover.map((item) => (
               <div
                 key={item.label}
-                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 text-gray-300 hover:bg-gray-100/10"
+                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 text-gray-800 dark:text-gray-300 hover:bg-gray-600/10 dark:hover:bg-gray-800"
               >
                 {item.icon && <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg">
                   {item.icon}
@@ -98,14 +98,14 @@ const Floating = ({ href, popover, children }: {
 }) => {
   let label = <a
     href={href}
-    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-100/10"
+    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 dark:text-gray-300 dark:hover:bg-gray-100/10 hover:bg-gray-400/30"
   >
     {children}
   </a>
   if (popover) {
     label = (
       <Disclosure as="div" className="-mx-3">
-        <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-400/10">
+        <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-800 dark:text-gray-300 hover:bg-gray-400/30">
           {children}
           <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
         </DisclosureButton>
@@ -115,7 +115,7 @@ const Floating = ({ href, popover, children }: {
               key={item.label}
               as="a"
               href={item.href}
-              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-300 hover:bg-gray-100/10"
+              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-800 dark:text-gray-300 dark:hover:bg-gray-100/10 hover:bg-gray-400/30"
             >
               {item.label}
             </DisclosureButton>
@@ -160,7 +160,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+            <Bars3Icon aria-hidden="true" className="h-6 w-6 text-black dark:text-white" />
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
@@ -182,7 +182,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 bg-white dark:bg-black">
           <div className="flex items-center justify-between">
             {leading && <BrandIcon href={leading.href} desc={leading.desc}>
               {leading.icon}
@@ -190,7 +190,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 text-black dark:text-white"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />

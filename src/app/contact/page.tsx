@@ -24,9 +24,7 @@ export default function Page() {
         <HomeButton
           href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzk0NDYyNjY0Nw==#wechat_redirect"
           title="微信公众号">
-          <span className="text-gray-300">
-            {'打开微信搜索"小应生活"，关注我们，掌握第一手资讯'}
-          </span>
+          {'打开微信搜索"小应生活"，关注我们，掌握第一手资讯'}
         </HomeButton>
         <HomeButton
           href="/feedback"
