@@ -4,7 +4,7 @@ import Title from "@/components/title";
 export default function Page() {
   return <MainFramework>
     <Title
-      title="下载地址"
+      title="用户协议"
       desc=""
     />
   </MainFramework>
