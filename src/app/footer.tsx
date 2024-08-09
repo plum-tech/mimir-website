@@ -26,6 +26,12 @@ const sections: FooterSection[] = [{
     label: "意见反馈",
     href: "/feedback",
   },],
+}, {
+  label: "更多",
+  items: [{
+    label: "小应社区",
+    href: "https://forum.mysit.life",
+  },],
 }]
 const quickContacts: QuickContact[] = [{
   desc: "GitHub",
