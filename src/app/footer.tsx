@@ -47,7 +47,7 @@ export default function Footer() {
     >
       <>© 2024 <a href="https://liplum.net"
         className="underline"
-      >Plum Technology</a>. All Rights Reserved. </>
+      >Plum Technology Ltd.</a>. All Rights Reserved. </>
       <br />
       <a href="https://beian.miit.gov.cn"
         className="underline"
