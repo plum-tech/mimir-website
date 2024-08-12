@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { HTMLAttributeAnchorTarget, ReactNode } from "react"
 
 
 export interface FooterSection {
@@ -8,17 +8,19 @@ export interface FooterSection {
 export interface FooterSectionItem {
   label: string
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }
 
 
 const FooterSectionItemComp = ({
-  label, href
+  label, href, target
 }: {
   label?: string
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }) => {
   return <li className="mb-4">
-    <a href={href} className="hover:underline">{label}</a>
+    <a href={href} target={target} className="hover:underline">{label}</a>
   </li>
 }
 
@@ -29,13 +31,14 @@ const FooterSectionComp = ({
   items?: FooterSectionItem[]
 }) => {
   return <div>
-    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{label}</h2>
+    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:`text-white`">{label}</h2>
     <ul className="text-gray-400 font-medium">
       {items && items?.map(item => (
         <FooterSectionItemComp
           key={item.label}
           label={item.label}
           href={item.href}
+          target={item.target}
         />
       ))}
     </ul>
@@ -46,16 +49,18 @@ export interface QuickContact {
   desc?: string
   href?: string
   icon: ReactNode
+  target?: HTMLAttributeAnchorTarget
 }
 
 const QuickContactButton = ({
-  desc, href, children
+  desc, href, children, target
 }: {
   desc?: string
   href?: string
+  target?: HTMLAttributeAnchorTarget
   children: ReactNode
 }) => {
-  return <a href={href} className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+  return <a href={href} target={target} className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
     {children}
     {desc ? <span className="sr-only">{desc}</span> : <></>}
   </a>
@@ -93,6 +98,7 @@ export default function FooterFramework({ sections, children, quickContacts }: {
                 key={contact.desc}
                 desc={contact.desc}
                 href={contact.href}
+                target={contact.target}
               >{contact.icon}</QuickContactButton>
             ))
           }

@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useState } from 'react'
+import { HTMLAttributeAnchorTarget, ReactNode, useState } from 'react'
 
 import {
   Dialog,
@@ -24,6 +24,7 @@ import {
 export interface HeaderTab {
   label: string
   href?: string
+  target?: HTMLAttributeAnchorTarget
   popover?: TabPopover[]
 }
 
@@ -32,25 +33,29 @@ export interface TabPopover {
   desc?: string
   icon?: ReactNode
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }
 
 export interface HeaderLeading {
   icon?: ReactNode
   desc?: string
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }
 
 export interface HeaderTrailing {
   label: ReactNode
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }
 
-const Tab = ({ href, popover, children }: {
+const Tab = ({ href, target, popover, children }: {
   href?: string
+  target?: HTMLAttributeAnchorTarget
   popover?: TabPopover[]
   children: ReactNode
 }) => {
-  let label = <a href={href} className="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300">
+  let label = <a href={href} target={target} className="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300">
     {children}
   </a>
   if (popover?.length) {
@@ -63,7 +68,7 @@ const Tab = ({ href, popover, children }: {
 
         <PopoverPanel
           transition
-          className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-gray-900/10 dark:bg-gray-400/10 dark:border dark:border-neutral-700"
+          className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-gray-900/10 dark:border dark:border-neutral-700"
         >
           <div className="p-4">
             {popover.map((item) => (
@@ -75,7 +80,7 @@ const Tab = ({ href, popover, children }: {
                   {item.icon}
                 </div>}
                 <div className="flex-auto">
-                  <a href={item.href} className="block font-semibold">
+                  <a href={item.href} target={item.target} className="block font-semibold">
                     {item.label}
                     <span className="absolute inset-0" />
                   </a>
@@ -91,14 +96,15 @@ const Tab = ({ href, popover, children }: {
   return label
 }
 
-const Floating = ({ href, popover, children }: {
+const Floating = ({ href, target, popover, children }: {
   href?: string
+  target?: HTMLAttributeAnchorTarget
   popover?: TabPopover[]
   children: ReactNode
 }) => {
   let label = <a
     href={href}
-    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 dark:text-gray-300 dark:hover:bg-gray-100/10 hover:bg-gray-400/30"
+    target={target} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 dark:text-gray-300 dark:hover:bg-gray-100/10 hover:bg-gray-400/30"
   >
     {children}
   </a>
@@ -115,6 +121,7 @@ const Floating = ({ href, popover, children }: {
               key={item.label}
               as="a"
               href={item.href}
+              target={item.target}
               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-800 dark:text-gray-300 dark:hover:bg-gray-100/10 hover:bg-gray-400/30"
             >
               {item.label}
@@ -127,12 +134,13 @@ const Floating = ({ href, popover, children }: {
   return label
 }
 
-const BrandIcon = ({ children, desc, href }: {
+const BrandIcon = ({ children, desc, href, target }: {
   children: ReactNode
   desc?: string
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }) => {
-  return <a href={href} className="-m-1.5 p-1.5">
+  return <a href={href} target={target} className="-m-1.5 p-1.5">
     {desc && <span className="sr-only">{desc}</span>}
     {children}
   </a>
@@ -149,9 +157,12 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
     <header className="">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          {leading && <BrandIcon href={leading.href} desc={leading.desc}>
-            {leading.icon}
-          </BrandIcon>}
+          {leading &&
+            <BrandIcon
+              href={leading.href} desc={leading.desc}
+              target={leading.target}>
+              {leading.icon}
+            </BrandIcon>}
         </div>
         <div className="flex lg:hidden">
           <button
@@ -170,23 +181,30 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
                 key={tab.label}
                 popover={tab.popover}
                 href={tab.href}
+                target={tab.target}
               >{tab.label}</Tab>
             ))
           }
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {trailing && <a href={trailing.href} className="text-sm font-semibold leading-6 text-gray-300">
-            {trailing.label} <span aria-hidden="true">&rarr;</span>
-          </a>}
+          {trailing &&
+            <a href={trailing.href}
+              className="text-sm font-semibold leading-6 text-gray-300"
+              target={trailing.target}>
+              {trailing.label} <span aria-hidden="true">&rarr;</span>
+            </a>}
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 bg-white dark:bg-black">
           <div className="flex items-center justify-between">
-            {leading && <BrandIcon href={leading.href} desc={leading.desc}>
-              {leading.icon}
-            </BrandIcon>}
+            {leading &&
+              <BrandIcon
+                href={leading.href} desc={leading.desc}
+                target={leading.target}>
+                {leading.icon}
+              </BrandIcon>}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -205,6 +223,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
                       key={tab.label}
                       popover={tab.popover}
                       href={tab.href}
+                      target={tab.target}
                     >{tab.label}</Floating>
                   ))
                 }
@@ -212,6 +231,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
               {trailing && <div className="py-6">
                 <a
                   href={trailing.href}
+                  target={trailing.target}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-50"
                 >
                   {trailing.label}

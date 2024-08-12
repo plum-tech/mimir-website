@@ -31,11 +31,13 @@ const sections: FooterSection[] = [{
   items: [{
     label: "小应社区",
     href: "https://forum.mysit.life",
+    target:"_blank",
   },],
 }]
 const quickContacts: QuickContact[] = [{
   desc: "GitHub",
   href: "https://github.com/liplum-dev/mimir-website",
+  target:"_blank",
   icon: <SiGithub />,
 }]
 
@@ -45,7 +47,7 @@ export default function Footer() {
       sections={sections}
       quickContacts={quickContacts}
     >
-      <>© 2024 <a href="https://liplum.net"
+      <>Copyright © 2024 <a href="https://liplum.net"
         className="underline"
       >Plum Technology Ltd.</a>. All Rights Reserved. </>
       <br />
