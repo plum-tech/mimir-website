@@ -68,13 +68,13 @@ const Tab = ({ href, target, popover, children }: {
 
         <PopoverPanel
           transition
-          className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-gray-900/10 dark:border dark:border-neutral-700"
+          className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:border dark:border-neutral-700"
         >
-          <div className="p-4">
+          <div className="p-4 bg-white dark:bg-black">
             {popover.map((item) => (
               <div
                 key={item.label}
-                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 text-gray-800 dark:text-gray-300 hover:bg-gray-600/10 dark:hover:bg-gray-800"
+                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 text-gray-800 dark:text-gray-300 hover:bg-black/10 dark:hover:bg-white/10"
               >
                 {item.icon && <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg">
                   {item.icon}
@@ -154,7 +154,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="">
+    <header className="z-10 w-full lg:fixed lg:backdrop-blur">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           {leading &&
@@ -196,8 +196,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 bg-white dark:bg-black">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 bg-white/10 dark:bg-black/10 backdrop-blur">
           <div className="flex items-center justify-between">
             {leading &&
               <BrandIcon
