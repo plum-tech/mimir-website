@@ -153,8 +153,8 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  return (
-    <header className="z-10 w-full lg:fixed lg:backdrop-blur">
+  return <>
+    <header className="z-10 w-full fixed backdrop-blur">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           {leading &&
@@ -241,5 +241,6 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
         </DialogPanel>
       </Dialog>
     </header>
-  )
+    <div className="h-4" />
+  </>
 }
