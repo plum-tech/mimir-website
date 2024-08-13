@@ -16,6 +16,13 @@ pnpm install
 pnpm run dev
 ```
 
+### How to build
+
+```bash
+docker build . -t cr.liplum.net/core/website:<tag>
+docker push cr.liplum.net/core/website:<tag>
+```
+
 ### How to deploy
 
 First, make a directory as working directory.
