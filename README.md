@@ -27,8 +27,8 @@ services:
   website:
     image: cr.liplum.net/mimir/website:<tag>
     container_name: mimir.website
-    expose:
-      - 3000
+    ports:
+      - 9001:3000
     restart: always
 ```
 
