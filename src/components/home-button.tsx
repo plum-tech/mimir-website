@@ -1,14 +1,16 @@
-import { ReactNode } from "react"
+import { HTMLAttributeAnchorTarget, ReactNode } from "react"
 
 export default function HomeButton({
-  title, href, children
+  title, href, target, children
 }: {
   title: ReactNode
   children: ReactNode
   href?: string
+  target?: HTMLAttributeAnchorTarget
 }) {
   return <a
     href={href}
+    target={target}
     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
     rel="noopener noreferrer"
   >
