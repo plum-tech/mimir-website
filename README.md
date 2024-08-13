@@ -24,33 +24,36 @@ Create a `docker-compose.yaml` file under the working directory, and copy-paste 
 
 ```yaml
 services:
-  mimir-website:
-    image: ghcr.io/liplum-dev/mimir-website:latest # not yet prepared
-    container_name: mimir-website
+  website:
+    image: cr.liplum.net/mimir/website:<tag>
+    container_name: mimir.website
     expose:
       - 3000
     restart: always
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./certs:/etc/certs
-    restart: always
-    depends_on:
-      - mimir-website
-
 ```
 
 Then, create a `nginx.conf` file under the working directory, and copy-paste the following contents.
 
 ```nginx
 server {
+  listen 443 ssl;
+  server_name www.mysit.life;
+
+  ssl_certificate /certs/www.mysit.life/public.crt;
+  ssl_certificate_key /certs/www.mysit.life/private.key;
+
+  location / {
+    proxy_pass http://localhost:9001;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+
+server {
   listen 80;
-  server_name mysit.life;
+  server_name www.mysit.life;
 
   location / {
     return 301 https://$host$request_uri;
@@ -58,20 +61,23 @@ server {
 }
 
 server {
+  listen 80;
+  server_name mysit.life;
+
+  location / {
+    return 301 https://www.mysit.life$request_uri;
+  }
+}
+
+server {
   listen 443 ssl;
   server_name mysit.life;
 
-  ssl_certificate /etc/certs/public.crt;
-  ssl_certificate_key /etc/certs/private.key;
-
   location / {
-    proxy_pass http://mimir-website:3000;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
+    return 301 https://www.mysit.life$request_uri;
   }
 }
+
 ```
 
 After that, copy-paste the SSL certificate files of `mysit.life` to `public.crt` and `private.key` under the working directory.
