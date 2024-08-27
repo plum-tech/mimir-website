@@ -32,7 +32,11 @@ const sections: FooterSection[] = [{
     label: "小应社区",
     href: "https://forum.mysit.life",
     target:"_blank",
-  },],
+  },{
+    label: "SIT-Minecraft",
+    href:"https://www.sitmc.club/",
+    target:"_blank",
+  }],
 }]
 const quickContacts: QuickContact[] = [{
   desc: "GitHub",
