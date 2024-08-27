@@ -37,8 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      {/* @ts-ignore */}
       <meta itemprop="name" content="小应生活" />
+      {/* @ts-ignore */}
       <meta itemprop="description" content="小应生活 - 你的校园生活，从未如此简单。上应人必备的App，由上海应用技术大学小应生活团队开发。" />
+      {/* @ts-ignore */}
       <meta itemprop="image" content="https://www.mysit.life/icon-512x.png" />
       <body className={inter.className}>
         <Header />
