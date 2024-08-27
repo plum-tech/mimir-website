@@ -4,7 +4,7 @@
 
 ### Install dependencies
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `pnpm`:
 
 ```bash
 pnpm install
@@ -19,8 +19,8 @@ pnpm run dev
 ### How to build
 
 ```bash
-docker build . -t cr.liplum.net/core/website:<tag>
-docker push cr.liplum.net/core/website:<tag>
+docker build . -t cr.liplum.net/mimir/website:<tag>
+docker push cr.liplum.net/mimir/website:<tag>
 ```
 
 ### How to deploy
