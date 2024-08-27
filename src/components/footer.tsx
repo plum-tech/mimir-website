@@ -84,8 +84,8 @@ export default function FooterFramework({ sections, children, quickContacts }: {
       <div className="px-4 py-6 md:flex md:items-center md:justify-between">
         <div className="">
           {
-            React.Children.toArray(children).map((child) => (
-              <span key={`${child}`} className="text-sm text-gray-500 dark:text-gray-300">
+            React.Children.toArray(children).map((child,index) => (
+              <span key={`${index}`} className="text-sm text-gray-500 dark:text-gray-300">
                 {child}
               </span>
             ))
