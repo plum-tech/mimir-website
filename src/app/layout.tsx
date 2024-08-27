@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "小应生活",
-  description: "小应生活 - 你的校园生活，从未如此简单。上应人必备App，上海应用技术大学小应生活团队开发。",
+  description: "小应生活 - 你的校园生活，从未如此简单。上应人必备App，上海应用技术大学小应生活团队开发",
   applicationName: "小应生活",
   robots: {
     index: true,
@@ -37,12 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      {/* @ts-ignore */}
-      <meta itemprop="name" content="小应生活" />
-      {/* @ts-ignore */}
-      <meta itemprop="description" content="小应生活 - 你的校园生活，从未如此简单。上应人必备App，上海应用技术大学小应生活团队开发。" />
-      {/* @ts-ignore */}
-      <meta itemprop="image" content="https://www.mysit.life/icon-512x.png" />
+      <meta itemProp="name" content="小应生活" />
+      <meta itemProp="description" content="小应生活 - 你的校园生活，从未如此简单。上应人必备App，上海应用技术大学小应生活团队开发" />
+      <meta itemProp="image" content="https://www.mysit.life/icon-512x.png" />
       <body className={inter.className}>
         <Header />
         {children}

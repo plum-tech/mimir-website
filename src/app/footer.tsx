@@ -55,7 +55,7 @@ export default function Footer() {
         className="underline"
       >Plum Technology Ltd.</a>. All Rights Reserved. </>
       <br />
-      <a href="https://beian.miit.gov.cn"
+      <a rel="nofollow" href="https://beian.miit.gov.cn"
         className="underline"
       >沪ICP备2024077945号-2</a>
     </FooterFramework>
