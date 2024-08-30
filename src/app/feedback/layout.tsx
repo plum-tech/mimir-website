@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "意见反馈 -小应生活",
+  title: "意见反馈 - 小应生活",
 };
 
 export default function PageLayout({

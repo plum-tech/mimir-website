@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "应用下载 -小应生活",
+  title: "应用下载 - 小应生活",
 };
 
 export default function PageLayout({
