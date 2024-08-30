@@ -19,6 +19,9 @@ const sections: FooterSection[] = [{
   }, {
     label: "关于我们",
     href: "/about",
+  }, {
+    label: "隐私政策",
+    href: "/privacy-policy",
   },]
 }, {
   label: "反馈",
@@ -31,17 +34,17 @@ const sections: FooterSection[] = [{
   items: [{
     label: "小应社区",
     href: "https://forum.mysit.life",
-    target:"_blank",
-  },{
+    target: "_blank",
+  }, {
     label: "SIT-Minecraft",
-    href:"https://www.sitmc.club/",
-    target:"_blank",
+    href: "https://www.sitmc.club/",
+    target: "_blank",
   }],
 }]
 const quickContacts: QuickContact[] = [{
   desc: "GitHub",
   href: "https://github.com/liplum-dev/mimir-website",
-  target:"_blank",
+  target: "_blank",
   icon: <SiGithub />,
 }]
 

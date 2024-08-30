@@ -8,7 +8,7 @@ export default function Page() {
       title="隐私政策"
       desc=""
     />
-    <div className="">
+    <div className="px-4 md:px-8 lg:px-16">
       <PrivacyPolicy />
     </div>
   </MainFramework>
