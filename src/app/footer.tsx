@@ -22,7 +22,10 @@ const sections: FooterSection[] = [{
   }, {
     label: "隐私政策",
     href: "/privacy-policy",
-  },]
+  }, {
+    label: "使用协议",
+    href: "/tos",
+  }]
 }, {
   label: "反馈",
   items: [{

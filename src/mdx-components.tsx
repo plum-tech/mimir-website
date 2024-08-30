@@ -15,6 +15,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: ({ children }) => (
       <h1 className='text-2xl'>{children}</h1>
     ),
+    h3: ({ children }) => (
+      <h1 className='text-xl'>{children}</h1>
+    ),
     img: (props) => (
       <Image
         sizes="100vw"
