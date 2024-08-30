@@ -46,7 +46,7 @@ const quickContacts: QuickContact[] = [{
 }]
 
 export default function Footer() {
-  return <div className="px-16">
+  return <div className="px-4 md:px-8 lg:px-16">
     <FooterFramework
       sections={sections}
       quickContacts={quickContacts}
