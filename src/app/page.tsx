@@ -5,8 +5,7 @@ import HomeButton from "@/components/home-button";
 const actions = [{
   title: "应用下载",
   desc: "下载最新版小应生活App，适用于 iOS 和 Android",
-  // href: "/download",
-  href: "https://g.mysit.life/",
+  href: "/download",
 }, {
   title: "联系我们",
   desc: "通过以下方式与我们联系：电子邮箱、QQ群、微信公众号",

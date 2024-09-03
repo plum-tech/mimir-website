@@ -4,12 +4,10 @@ const sections: FooterSection[] = [{
   label: "应用下载",
   items: [{
     label: "Android",
-    // href: "/download/android",
-    href: "https://g.mysit.life/android/"
+    href: "/download#android",
   }, {
     label: "iOS",
-    // href: "/download/ios",
-    href: "https://g.mysit.life/ios/",
+    href: "/download#ios",
   },]
 }, {
   label: "帮助",

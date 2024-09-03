@@ -5,12 +5,10 @@ const tabs: HeaderTab[] = [{
   label: "下载",
   popover: [{
     label: "Android",
-    // href: "/download/android",
-    href: "https://g.mysit.life/android/"
+    href: "/download#android",
   }, {
     label: "iOS",
-    // href: "/download/ios",
-    href: "https://g.mysit.life/ios/",
+    href: "/download#ios",
   },]
 }, {
   label: "小应社区",
