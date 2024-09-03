@@ -19,24 +19,30 @@ interface ArtifactDownload {
 
 export default async function Page() {
   const latest = await fetch("https://g.mysit.life/artifact/latest.json")
-  const json = await latest.json() as Artifact
-
+  const info = await latest.json() as Artifact
+  const releaseTime = new Date(info.release_time)
   return <MainFramework>
     <Title
       title="应用下载"
-      desc=""
+      desc="下载小应生活的最新版本"
     />
-    <ReleaseNote note={json.release_note} />
+    <Card
+      header={
+        <div className="text-xl text-center">
+          v{info.version}
+        </div>
+      }
+      footer={
+        <div className="text-end">
+          {releaseTime.toLocaleString()}
+        </div>
+      }
+    >
+      <article>
+        <MDXRemote source={info.release_note} />
+      </article>
+    </Card >
     {/* {JSON.stringify(json, null, 2)} */}
   </MainFramework>
 }
 
-const ReleaseNote = ({ note }: { note: string }) => {
-  return (
-    <Card>
-      <article>
-        <MDXRemote source={note} />
-      </article>
-    </Card >
-  )
-}

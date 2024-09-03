@@ -31,8 +31,10 @@ const FooterSectionComp = ({
   items?: FooterSectionItem[]
 }) => {
   return <div>
-    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">{label}</h2>
-    <ul className="text-gray-400 font-medium">
+    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+      {label}
+    </h2>
+    <ul className="text-gray-600 font-medium">
       {items && items?.map(item => (
         <FooterSectionItemComp
           key={item.label}
@@ -84,7 +86,7 @@ export default function FooterFramework({ sections, children, quickContacts }: {
       <div className="px-4 py-6 md:flex md:items-center md:justify-between">
         <div className="">
           {
-            React.Children.toArray(children).map((child,index) => (
+            React.Children.toArray(children).map((child, index) => (
               <span key={`${index}`} className="text-sm text-gray-500 ">
                 {child}
               </span>
