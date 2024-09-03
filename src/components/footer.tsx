@@ -31,7 +31,7 @@ const FooterSectionComp = ({
   items?: FooterSectionItem[]
 }) => {
   return <div>
-    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{label}</h2>
+    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">{label}</h2>
     <ul className="text-gray-400 font-medium">
       {items && items?.map(item => (
         <FooterSectionItemComp
@@ -60,7 +60,7 @@ const QuickContactButton = ({
   target?: HTMLAttributeAnchorTarget
   children: ReactNode
 }) => {
-  return <a href={href} target={target} className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+  return <a href={href} target={target} className="text-gray-400 hover:text-gray-900 ">
     {children}
     {desc ? <span className="sr-only">{desc}</span> : <></>}
   </a>
@@ -85,7 +85,7 @@ export default function FooterFramework({ sections, children, quickContacts }: {
         <div className="">
           {
             React.Children.toArray(children).map((child,index) => (
-              <span key={`${index}`} className="text-sm text-gray-500 dark:text-gray-300">
+              <span key={`${index}`} className="text-sm text-gray-500 ">
                 {child}
               </span>
             ))
