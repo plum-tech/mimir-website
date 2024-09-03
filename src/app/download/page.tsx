@@ -2,6 +2,7 @@ import { Card } from "@/components/card";
 import MainFramework from "@/components/main";
 import Title from "@/components/title";
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { ReactNode } from "react";
 
 interface Artifact {
   version: string
@@ -20,29 +21,42 @@ interface ArtifactDownload {
 export default async function Page() {
   const latest = await fetch("https://g.mysit.life/artifact/latest.json")
   const info = await latest.json() as Artifact
-  const releaseTime = new Date(info.release_time)
   return <MainFramework>
     <Title
       title="应用下载"
       desc="下载小应生活的最新版本"
     />
-    <Card
-      header={
-        <div className="text-xl text-center">
-          v{info.version}
-        </div>
-      }
-      footer={
-        <div className="text-end">
-          {releaseTime.toLocaleString()}
-        </div>
-      }
-    >
-      <article>
-        <MDXRemote source={info.release_note} />
-      </article>
-    </Card >
+    <ReleaseInfoCard
+      version={`v${info.version}`}
+      releaseTime={new Date(info.release_time).toLocaleString()}
+      releaseNote={info.release_note}
+    />
     {/* {JSON.stringify(json, null, 2)} */}
   </MainFramework>
+}
+
+const ReleaseInfoCard = ({
+  version, releaseTime, releaseNote
+}: {
+  version: ReactNode
+  releaseTime: ReactNode
+  releaseNote: string
+}) => {
+  return <Card
+    header={
+      <div className="text-xl text-center">
+        {version}
+      </div>
+    }
+    footer={
+      <div className="text-end">
+        {releaseTime}
+      </div>
+    }
+  >
+    <article>
+      <MDXRemote source={releaseNote} />
+    </article>
+  </Card >
 }
 
