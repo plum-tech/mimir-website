@@ -36,9 +36,6 @@ services:
     container_name: mimir.website
     ports:
       - 9001:3000
-    volumes:
-      # public files
-      - ./public:/app/public
     restart: always
 ```
 
