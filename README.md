@@ -36,6 +36,9 @@ services:
     container_name: mimir.website
     ports:
       - 9001:3000
+    volumes:
+      # public files
+      - ./public:/app/public
     restart: always
 ```
 
@@ -87,7 +90,7 @@ server {
 
 ```
 
-After that, copy-paste the SSL certificate files of `mysit.life` to `public.crt` and `private.key` under the working directory.
+After that, copy-paste the SSL certificate files of `www.mysit.life` to `public.crt` and `private.key` under the working directory.
 
 Finally, run the command below to start the server.
 
