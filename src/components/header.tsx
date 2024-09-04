@@ -146,7 +146,10 @@ const BrandIcon = ({ children, desc, href, target }: {
   </a>
 }
 
-export default function HeaderFramework({ leading, tabs, trailing }: {
+export default function HeaderFramework({
+  title, leading, tabs, trailing
+}: {
+  title?: ReactNode
   leading?: HeaderLeading
   tabs: HeaderTab[]
   trailing?: HeaderTrailing
@@ -164,6 +167,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
               {leading.icon}
             </BrandIcon>}
         </div>
+        {title}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -171,7 +175,7 @@ export default function HeaderFramework({ leading, tabs, trailing }: {
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6 text-black"  />
+            <Bars3Icon aria-hidden="true" className="h-6 w-6 text-black" />
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">

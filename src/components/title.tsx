@@ -3,7 +3,7 @@ export default function Title({ title, desc }: {
   desc?: string
 }) {
   return (
-    <div className="relative isolate overflow-hidden py-16 mx-auto max-w-7xl sm:py-16 lg:px-8">
+    <div className="relative isolate overflow-hidden pt-16 mx-auto max-w-7xl py-4 lg:px-8">
       <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl text-center">
         {title}
       </h1>

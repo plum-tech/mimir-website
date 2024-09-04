@@ -39,7 +39,7 @@ export default async function Page() {
       releaseTime={new Date(info.release_time).toLocaleString()}
       releaseNote={info.release_note}
     />
-    <div className="grid text-center grid-cols-2 p-8 space-x-4">
+    <div className="grid text-center grid-cols-2 p-4 space-x-4">
       <AndroidCard link={getDefaultDownload(info.downloads.Android)} />
       <IosCard />
     </div>

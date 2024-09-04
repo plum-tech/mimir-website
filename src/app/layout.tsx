@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./footer";
 import Header from "./header";
+import GoToTopButton from "@/components/go-top";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <GoToTopButton />
       </body>
     </html>
   );
