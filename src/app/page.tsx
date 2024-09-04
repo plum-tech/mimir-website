@@ -3,7 +3,7 @@ import Title from "@/components/title";
 import HomeButton from "@/components/home-button";
 import previewGame from "./preview-game.png"
 import previewTimetable from "./preview-timetable.png"
-// import modelI18n from "./model-i18n.png"
+import previewI18n from "./preview-i18n.png"
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Card } from "@/components/card";
@@ -48,7 +48,6 @@ export default function Home() {
             />}
           />
         </Card>
-
         <Card>
           <ProductDescriptivePreview desc={
             <ProductDesc title={<>
@@ -59,6 +58,20 @@ export default function Home() {
             image={<Image
               alt="扫雷"
               src={previewGame}
+              className="w-80"
+            />}
+          />
+        </Card>
+        <Card>
+          <ProductDescriptivePreview desc={
+            <ProductDesc title={<>
+              多种语言 轻松切换
+            </>}>
+              小应内置简体中文，繁体中文和英文，你是留学生也能快速上手
+            </ProductDesc>}
+            image={<Image
+              alt="英文的设置界面"
+              src={previewI18n}
               className="w-80"
             />}
           />
@@ -82,7 +95,7 @@ const HomeButtonGroup = ({
 }: {
   actions: IHomeButton[]
 }) => {
-  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left space-x-2 px-2">
+  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left space-x-2 px-4">
     {
       actions.map((action, index) => (
         <HomeButton
