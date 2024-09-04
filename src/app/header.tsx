@@ -1,5 +1,6 @@
 import HeaderFramework, { HeaderTab, HeaderLeading } from "@/components/header"
 import Image from "next/image"
+import icon from "./icon.png"
 
 const tabs: HeaderTab[] = [{
   label: "下载",
@@ -26,10 +27,8 @@ export default function Header() {
     leading={{
       icon: <Image
         className="h-8 w-auto"
-        src="/icon-512x.png"
+        src={icon}
         alt="小应生活 Logo"
-        width={256}
-        height={256}
       />,
       href: "/",
     }}

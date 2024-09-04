@@ -4,6 +4,8 @@ import Title from "@/components/title";
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { ReactNode } from "react";
 import { LinkButton } from "@/components/button"
+import Image from "next/image";
+import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
 
 interface Artifact {
   version: string
@@ -30,7 +32,7 @@ export default async function Page() {
   return <MainFramework>
     <Title
       title="应用下载"
-      desc="下载小应生活的最新版本"
+      desc="获取最新版本的小应生活"
     />
     <ReleaseInfoCard
       version={`v${info.version}`}
@@ -38,7 +40,7 @@ export default async function Page() {
       releaseNote={info.release_note}
     />
     <div className="grid text-center grid-cols-2 p-8 space-x-4">
-      <AndroidCard link="getDefaultDownload(info.downloads.Android)" />
+      <AndroidCard link={getDefaultDownload(info.downloads.Android)} />
       <IosCard />
     </div>
     <DownloadSourceAds />
@@ -91,7 +93,10 @@ const IosCard = () => {
     </h2>
   }>
     <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112">
-      <img src="/download-on-the-app-store-badge.svg" />
+      <Image
+        alt="从 App Store 获取小应生活"
+        src={downloadOnAppStoreBadge}
+      />
     </a>
     加入<a target="_blank" href="https://testflight.apple.com/join/2n5I09Zv" className="link">Test Flight</a>
   </Card>
