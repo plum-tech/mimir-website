@@ -95,7 +95,7 @@ const HomeButtonGroup = ({
 }: {
   actions: IHomeButton[]
 }) => {
-  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left space-x-2 px-4">
+  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:text-left space-x-2 px-4">
     {
       actions.map((action, index) => (
         <HomeButton

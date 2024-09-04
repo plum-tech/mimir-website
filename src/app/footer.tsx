@@ -1,13 +1,13 @@
 import FooterFramework, { FooterSection, QuickContact } from "@/components/footer";
 import { SiGithub } from '@icons-pack/react-simple-icons';
 const sections: FooterSection[] = [{
-  label: "应用下载",
+  label: "发布",
   items: [{
-    label: "Android",
-    href: "/download#android",
+    label: "应用下载",
+    href: "/download",
   }, {
-    label: "iOS",
-    href: "/download#ios",
+    label: "开源仓库",
+    href: "https://github.com/liplum-dev/mimir",
   },]
 }, {
   label: "帮助",
@@ -18,18 +18,18 @@ const sections: FooterSection[] = [{
     label: "关于我们",
     href: "/about",
   }, {
+    label: "意见反馈",
+    href: "/feedback",
+  },]
+}, {
+  label: "协议",
+  items: [{
     label: "隐私政策",
     href: "/privacy-policy",
   }, {
-    label: "使用协议",
+    label: "服务协议",
     href: "/tos",
-  }]
-}, {
-  label: "反馈",
-  items: [{
-    label: "意见反馈",
-    href: "/feedback",
-  },],
+  }],
 }, {
   label: "更多",
   items: [{
