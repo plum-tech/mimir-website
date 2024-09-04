@@ -34,8 +34,9 @@ export default function Home() {
             <HomeButton
               key={action.title}
               title={action.title}
-              href={action.href}
-            >{action.desc}</HomeButton>
+              href={action.href}>
+              {action.desc}
+            </HomeButton>
           ))
         }
       </div>

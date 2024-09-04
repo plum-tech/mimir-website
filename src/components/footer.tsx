@@ -19,7 +19,7 @@ const FooterSectionItemComp = ({
   href?: string
   target?: HTMLAttributeAnchorTarget
 }) => {
-  return <li className="mb-4">
+  return <li className="mb-1">
     <a href={href} target={target} className="hover:underline">{label}</a>
   </li>
 }
@@ -34,7 +34,7 @@ const FooterSectionComp = ({
     <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
       {label}
     </h2>
-    <ul className="text-gray-600 font-medium">
+    <ul className="text-gray-700 font-medium">
       {items && items?.map(item => (
         <FooterSectionItemComp
           key={item.label}
@@ -93,15 +93,16 @@ export default function FooterFramework({ sections, children, quickContacts }: {
             ))
           }
         </div>
-        <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+        <div className="flex flex-row-reverse mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
           {
             quickContacts?.map(contact => (
               <QuickContactButton
                 key={contact.desc}
                 desc={contact.desc}
                 href={contact.href}
-                target={contact.target}
-              >{contact.icon}</QuickContactButton>
+                target={contact.target}>
+                {contact.icon}
+              </QuickContactButton>
             ))
           }
         </div>
