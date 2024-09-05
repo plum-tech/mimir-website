@@ -65,7 +65,8 @@ export default function Home() {
             第二课堂 最新活动
           </>}
           desc={<>
-            随时随地，查看第二课堂最新动态。别错过你感兴趣的活动，小应助你一臂之力。
+            随时随地关注最新动态，<br />
+            别错过你感兴趣的活动
           </>}
           image={previewSecondClass}
           imageAlt="第二课堂分数"

@@ -157,7 +157,7 @@ export default function HeaderFramework({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return <>
-    <header className="z-10 w-full fixed backdrop-blur-xxl">
+    <header className="z-10 w-full fixed backdrop-blur-2xl">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           {leading &&

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   keywords: [
+    "小应",
     "小应生活",
     "上海应用技术大学",
     "上应大",
@@ -42,6 +43,7 @@ export default function RootLayout({
         <meta itemProp="name" content="小应生活" />
         <meta itemProp="description" content="小应生活 - 你的校园生活，从未如此简单。上应人必备App，上海应用技术大学小应生活团队开发" />
         <meta itemProp="image" content="https://www.mysit.life/icon-512x.png" />
+        <meta name="baidu-site-verification" content="codeva-l41HNYleld" />
       </head>
       <body className={inter.className}>
         <Header />
