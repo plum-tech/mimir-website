@@ -1,35 +1,19 @@
 import { Card } from "@/components/card";
 import MainFramework from "@/components/main";
 import Title from "@/components/title";
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { ReactNode } from "react";
 import { LinkButton } from "@/components/button"
 import Image from "next/image";
 import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
+import { Artifact, getFirstAvaliableDownload } from "./model";
+import { ReleaseInfoCard } from "./comp";
 
-interface Artifact {
-  version: string
-  release_time: string
-  release_note: string
-  downloads: Record<string, ArtifactDownload>
-}
-
-interface ArtifactDownload {
-  name: string
-  default: string
-  sha256: string
-  url: Record<string, string>
-}
-
-const getDefaultDownload = (downloads: ArtifactDownload) => {
-  return downloads.url[downloads.default]
-}
+export const revalidate = 60 * 60 // 60 minutes
 
 export default async function Page() {
   const latest = await fetch("https://g.mysit.life/artifact/latest.json")
   const info = await latest.json() as Artifact
 
-  return <MainFramework>
+  return <MainFramework className="space-y-2">
     <Title
       title="应用下载"
       desc="获取最新版本的小应生活"
@@ -40,36 +24,11 @@ export default async function Page() {
       releaseNote={info.release_note}
     />
     <div className="grid text-center grid-cols-2 p-4 space-x-8">
-      <AndroidCard link={getDefaultDownload(info.downloads.Android)} />
+      <AndroidCard link={getFirstAvaliableDownload(info.downloads.Android)} />
       <IosCard />
     </div>
     <DownloadSourceAds />
   </MainFramework>
-}
-
-const ReleaseInfoCard = ({
-  version, releaseTime, releaseNote
-}: {
-  version: ReactNode
-  releaseTime: ReactNode
-  releaseNote: string
-}) => {
-  return <Card
-    header={
-      <div className="text-xl text-center">
-        {version}
-      </div>
-    }
-    footer={
-      <div className="text-end">
-        {releaseTime}
-      </div>
-    }
-  >
-    <article>
-      <MDXRemote source={releaseNote} />
-    </article>
-  </Card >
 }
 
 const AndroidCard = ({ link }: {
