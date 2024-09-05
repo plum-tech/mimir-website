@@ -21,7 +21,7 @@ export default async function Page({
 
   return <MainFramework>
     <Title
-      title="历史应用"
+      title="历史下载"
       desc={`获取小应生活 v${info.version}`}
     />
     <ReleaseInfoCard

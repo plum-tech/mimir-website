@@ -90,7 +90,8 @@ export default function Home() {
             多种语言 轻松切换
           </>}
           desc={<>
-            小应内置简体中文，繁体中文和英文，你是留学生也能快速上手
+            小应内置简体中文，繁体中文和英文，<br />
+            你是留学生也能快速上手
           </>}
           image={previewI18n}
           imageAlt="英文的设置界面"
