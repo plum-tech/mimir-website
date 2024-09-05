@@ -6,6 +6,7 @@ import previewTimetable from "./preview-timetable.png"
 import previewI18n from "./preview-i18n.png"
 import previewSecondClass from "./preview-second-class.png"
 import previewLife from "./preview-life.png"
+import previewP13n from "./preview-p13n.png"
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Card } from "@/components/card";
@@ -56,10 +57,10 @@ export default function Home() {
         <Card>
           <ProductDescriptivePreview desc={
             <ProductDesc title={<>
-              消费电费 不会欠费
+              消费电费 不忘缴费
             </>}>
               有了小应，你能实时关注余额动态，<br />
-              不用担心等到断电、刷卡失败才发觉。
+              不用担心等到断电、刷卡失败才发觉
             </ProductDesc>}
             image={<Image
               alt="消费记录和电费余额"
@@ -71,7 +72,7 @@ export default function Home() {
         <Card>
           <ProductDescriptivePreview desc={
             <ProductDesc title={<>
-              第二课堂 抢课特长
+              第二课堂 最新活动
             </>}>
               随时随地，查看第二课堂最新动态。别错过你感兴趣的活动，小应助你一臂之力。
             </ProductDesc>}
@@ -85,13 +86,27 @@ export default function Home() {
         <Card>
           <ProductDescriptivePreview desc={
             <ProductDesc title={<>
-              休闲娱乐 欢度上课
+              休闲娱乐 欢度课余
             </>}>
               感觉无聊？打开小应，来玩点小游戏
             </ProductDesc>}
             image={<Image
               alt="扫雷"
               src={previewGame}
+              className="w-80"
+            />}
+          />
+        </Card>
+        <Card>
+          <ProductDescriptivePreview desc={
+            <ProductDesc title={<>
+              自定界面 时尚单品
+            </>}>
+              多种颜色随心配，定制你的专属小应
+            </ProductDesc>}
+            image={<Image
+              alt="英文的设置界面"
+              src={previewP13n}
               className="w-80"
             />}
           />
