@@ -39,92 +39,67 @@ export default function Home() {
       }]} />
 
       <div className="space-y-8 py-2">
-        <Card>
-          <ProductDescriptivePreview desc={
-            <ProductDesc title={<>
-              课程安排 都到这来
-            </>}>
-              无论本科生还是研究生，<br />你的课程, 小应统统帮你安排
-            </ProductDesc>
-          }
-            image={<Image
-              alt="课程表"
-              src={previewTimetable}
-              className="w-80"
-            />}
-          />
-        </Card>
-        <Card>
-          <ProductDescriptivePreview desc={
-            <ProductDesc title={<>
-              消费电费 不忘缴费
-            </>}>
-              有了小应，你能实时关注余额动态，<br />
-              不用担心等到断电、刷卡失败才发觉
-            </ProductDesc>}
-            image={<Image
-              alt="消费记录和电费余额"
-              src={previewLife}
-              className="w-80"
-            />}
-          />
-        </Card>
-        <Card>
-          <ProductDescriptivePreview desc={
-            <ProductDesc title={<>
-              第二课堂 最新活动
-            </>}>
-              随时随地，查看第二课堂最新动态。别错过你感兴趣的活动，小应助你一臂之力。
-            </ProductDesc>}
-            image={<Image
-              alt="第二课堂分数"
-              src={previewSecondClass}
-              className="w-80"
-            />}
-          />
-        </Card>
-        <Card>
-          <ProductDescriptivePreview desc={
-            <ProductDesc title={<>
-              休闲娱乐 欢度课余
-            </>}>
-              感觉无聊？打开小应，来玩点小游戏
-            </ProductDesc>}
-            image={<Image
-              alt="扫雷"
-              src={previewGame}
-              className="w-80"
-            />}
-          />
-        </Card>
-        <Card>
-          <ProductDescriptivePreview desc={
-            <ProductDesc title={<>
-              自定界面 时尚单品
-            </>}>
-              多种颜色随心配，定制你的专属小应
-            </ProductDesc>}
-            image={<Image
-              alt="英文的设置界面"
-              src={previewP13n}
-              className="w-80"
-            />}
-          />
-        </Card>
-        <Card>
-          <ProductDescriptivePreview desc={
-            <ProductDesc title={<>
-              多种语言 轻松切换
-            </>}>
-              小应内置简体中文，繁体中文和英文，你是留学生也能快速上手
-            </ProductDesc>}
-            image={<Image
-              alt="英文的设置界面"
-              src={previewI18n}
-              className="w-80"
-            />}
-          />
-        </Card>
+        <ProductDescriptiveCard
+          title={<>
+            课程安排 都到这来
+          </>}
+          desc={<>
+            无论本科生还是研究生，<br />你的课程, 小应统统帮你安排
+          </>}
+          image={previewTimetable}
+          imageAlt="课程表"
+        />
+        <ProductDescriptiveCard
+          title={<>
+            消费电费 不忘缴费
+          </>}
+          desc={<>
+            有了小应，你能实时关注余额动态，<br />
+            不用担心等到断电、刷卡失败才发觉
+          </>}
+          image={previewLife}
+          imageAlt="消费记录和电费余额"
+        />
+        <ProductDescriptiveCard
+          title={<>
+            第二课堂 最新活动
+          </>}
+          desc={<>
+            随时随地，查看第二课堂最新动态。别错过你感兴趣的活动，小应助你一臂之力。
+          </>}
+          image={previewSecondClass}
+          imageAlt="第二课堂分数"
+        />
+        <ProductDescriptiveCard
+          title={<>
+            休闲娱乐 欢度课余
+          </>}
+          desc={<>
+            感觉无聊？打开小应，来玩点小游戏
+          </>}
+          image={previewGame}
+          imageAlt="扫雷"
+        />
+        <ProductDescriptiveCard
+          title={<>
+            自定界面 时尚单品
+          </>}
+          desc={<>
+            多种颜色随心配，定制你的专属小应
+          </>}
+          image={previewP13n}
+          imageAlt="课表配色方案和单元格格式"
+        />
+        <ProductDescriptiveCard
+          title={<>
+            多种语言 轻松切换
+          </>}
+          desc={<>
+            小应内置简体中文，繁体中文和英文，你是留学生也能快速上手
+          </>}
+          image={previewI18n}
+          imageAlt="英文的设置界面"
+        />
       </div>
       <HomeButtonGroup actions={[{
         title: "意见反馈",
@@ -168,6 +143,29 @@ const ProductDesc = ({
     <p className="text-gray-500">{children}</p>
   </>
 }
+
+const ProductDescriptiveCard = ({
+  title, desc, image, imageAlt
+}: {
+  title: ReactNode
+  desc?: ReactNode
+  imageAlt?: string
+  image: typeof previewI18n
+}) => {
+  return <Card>
+    <ProductDescriptivePreview desc={
+      <ProductDesc title={title}>
+        {desc}
+      </ProductDesc>}
+      image={<Image
+        alt={imageAlt ?? ""}
+        src={image}
+        className="w-80"
+      />}
+    />
+  </Card>
+}
+
 
 const ProductDescriptivePreview = ({
   desc, image
