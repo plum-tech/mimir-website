@@ -38,7 +38,7 @@ export default function Home() {
         href: "/contact",
       }]} />
 
-      <div className="space-y-4 py-2">
+      <div className="space-y-8 py-2">
         <Card>
           <ProductDescriptivePreview desc={
             <ProductDesc title={<>
