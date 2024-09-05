@@ -1,6 +1,6 @@
 import MainFramework from "@/components/main"
 import Title from "@/components/title";
-import HomeButton from "@/components/home-button";
+import { HomeButtonGroup } from "@/components/home-button";
 import previewGame from "./preview-game.png"
 import previewTimetable from "./preview-timetable.png"
 import previewI18n from "./preview-i18n.png"
@@ -10,12 +10,6 @@ import previewP13n from "./preview-p13n.png"
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Card } from "@/components/card";
-
-interface IHomeButton {
-  title: string,
-  desc: string,
-  href: string,
-}
 
 export default function Home() {
   return (
@@ -115,24 +109,7 @@ export default function Home() {
   );
 }
 
-const HomeButtonGroup = ({
-  actions
-}: {
-  actions: IHomeButton[]
-}) => {
-  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:text-left space-x-2 px-4">
-    {
-      actions.map((action, index) => (
-        <HomeButton
-          key={index}
-          title={action.title}
-          href={action.href}>
-          {action.desc}
-        </HomeButton>
-      ))
-    }
-  </div>
-}
+
 const ProductDesc = ({
   title, children
 }: {

@@ -26,3 +26,26 @@ export default function HomeButton({
     </a>
   </div>
 }
+export interface IHomeButton {
+  title: string,
+  desc: string,
+  href: string,
+}
+export const HomeButtonGroup = ({
+  actions
+}: {
+  actions: IHomeButton[]
+}) => {
+  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:text-left space-x-2 px-4">
+    {
+      actions.map((action, index) => (
+        <HomeButton
+          key={index}
+          title={action.title}
+          href={action.href}>
+          {action.desc}
+        </HomeButton>
+      ))
+    }
+  </div>
+}

@@ -83,29 +83,27 @@ export default function FooterFramework({ sections, children, quickContacts }: {
           />
         ))}
       </div>
-      <div className="px-4 py-6 md:flex md:items-center md:justify-between">
-        <div className="">
-          {
-            React.Children.toArray(children).map((child, index) => (
-              <span key={`${index}`} className="text-sm text-gray-500 ">
-                {child}
-              </span>
-            ))
-          }
-        </div>
-        <div className="flex flex-row-reverse mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
-          {
-            quickContacts?.map(contact => (
-              <QuickContactButton
-                key={contact.desc}
-                desc={contact.desc}
-                href={contact.href}
-                target={contact.target}>
-                {contact.icon}
-              </QuickContactButton>
-            ))
-          }
-        </div>
+      <div className="px-4 py-6 md:items-center">
+        {
+          React.Children.toArray(children).map((child, index) => (
+            <span key={`${index}`} className="text-sm text-gray-500 ">
+              {child}
+            </span>
+          ))
+        }
+      </div>
+      <div className="flex flex-row-reverse mb-4 justify-center space-x-5 rtl:space-x-reverse">
+        {
+          quickContacts?.map(contact => (
+            <QuickContactButton
+              key={contact.desc}
+              desc={contact.desc}
+              href={contact.href}
+              target={contact.target}>
+              {contact.icon}
+            </QuickContactButton>
+          ))
+        }
       </div>
     </div>
   </footer>
