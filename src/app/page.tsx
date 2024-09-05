@@ -4,6 +4,8 @@ import HomeButton from "@/components/home-button";
 import previewGame from "./preview-game.png"
 import previewTimetable from "./preview-timetable.png"
 import previewI18n from "./preview-i18n.png"
+import previewSecondClass from "./preview-second-class.png"
+import previewLife from "./preview-life.png"
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Card } from "@/components/card";
@@ -19,7 +21,10 @@ export default function Home() {
     <MainFramework>
       <Title
         title="小应生活"
-        desc="你的校园生活，从未如此简单"
+        desc={<>
+          你的校园生活，从未如此简单。<br />
+          上应人必备的App！
+        </>}
       />
 
       <HomeButtonGroup actions={[{
@@ -51,7 +56,36 @@ export default function Home() {
         <Card>
           <ProductDescriptivePreview desc={
             <ProductDesc title={<>
-              休闲娱乐 就在这儿
+              消费电费 不会欠费
+            </>}>
+              有了小应，你能实时关注余额动态，<br />
+              不用担心等到断电、刷卡失败才发觉。
+            </ProductDesc>}
+            image={<Image
+              alt="消费记录和电费余额"
+              src={previewLife}
+              className="w-80"
+            />}
+          />
+        </Card>
+        <Card>
+          <ProductDescriptivePreview desc={
+            <ProductDesc title={<>
+              第二课堂 抢课特长
+            </>}>
+              随时随地，查看第二课堂最新动态。别错过你感兴趣的活动，小应助你一臂之力。
+            </ProductDesc>}
+            image={<Image
+              alt="第二课堂分数"
+              src={previewSecondClass}
+              className="w-80"
+            />}
+          />
+        </Card>
+        <Card>
+          <ProductDescriptivePreview desc={
+            <ProductDesc title={<>
+              休闲娱乐 欢度上课
             </>}>
               感觉无聊？打开小应，来玩点小游戏
             </ProductDesc>}
@@ -130,7 +164,7 @@ const ProductDescriptivePreview = ({
     <div className="text-center max-w-full h-auto">
       {image}
     </div>
-    <div className="text-center p-4">
+    <div className="text-center pt-4">
       {desc}
     </div>
 

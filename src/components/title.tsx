@@ -1,6 +1,8 @@
+import { ReactNode } from "react"
+
 export default function Title({ title, desc }: {
-  title: string
-  desc?: string
+  title: ReactNode
+  desc?: ReactNode
 }) {
   return (
     <div className="relative isolate overflow-hidden pt-16 mx-auto max-w-7xl py-4 lg:px-8">
