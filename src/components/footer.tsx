@@ -31,7 +31,7 @@ const FooterSectionComp = ({
   items?: FooterSectionItem[]
 }) => {
   return <div>
-    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+    <h2 className="mb-4 text-lg font-bold text-gray-900 uppercase">
       {label}
     </h2>
     <ul className="text-gray-700 font-medium">
