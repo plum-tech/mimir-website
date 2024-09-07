@@ -1,7 +1,7 @@
 import MainFramework from "@/components/main"
 import Title from "@/components/title"
 import { ReleaseInfoCard } from "../comp"
-import { Artifact, getFirstAvaliableDownload } from "../model"
+import { Artifact, getFirstAvailableDownload } from "../model"
 import { Card } from "@/components/card"
 import { LinkButton } from "@/components/button"
 import { notFound } from "next/navigation"
@@ -30,7 +30,7 @@ export default async function Page({
       releaseNote={info.release_note}
     />
     <div className="text-center p-4 space-x-8">
-      <GitHubCard link={getFirstAvaliableDownload(info.downloads.Android, ["github", "official"])} />
+      <GitHubCard link={getFirstAvailableDownload(info.downloads.Android, ["github", "official"])} />
     </div>
   </MainFramework>
 }

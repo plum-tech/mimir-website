@@ -8,7 +8,7 @@ export default function HomeButton({
   href?: string
   target?: HTMLAttributeAnchorTarget
 }) {
-  return <div className="group rounded-2xl border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-slate-100 bg-slate-50 m-1">
+  return <div className="group rounded-2xl border border-transparent px-2 md:px-4 lg:px-8 py-4 transition-colors hover:border-gray-300 hover:bg-slate-100 bg-slate-50 m-1">
     <a
       href={href}
       target={target}
@@ -20,7 +20,7 @@ export default function HomeButton({
           -&gt;
         </span>}
       </h2>
-      <p className="m-0 max-w-[30ch] text-sm opacity-60">
+      <p className="m-0 max-w-[30ch] md:max-w-[40ch] lg:max-w-[50ch] text-sm text-gray-700">
         {children}
       </p>
     </a>
@@ -36,7 +36,7 @@ export const HomeButtonGroup = ({
 }: {
   actions: IHomeButton[]
 }) => {
-  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:text-left space-x-2 px-4">
+  return <div className="grid grid-cols-2 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:text-left space-x-2 px-2">
     {
       actions.map((action, index) => (
         <HomeButton

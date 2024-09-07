@@ -14,7 +14,7 @@ export default function Page() {
         desc: "请将您的邮件发送至 mimir@liplum.net，我们将于五个工作日内回复",
         href: "mailto:mimir@liplum.net",
       }, {
-        title: "QQ交流群",
+        title: "QQ群",
         desc: "欢迎加入小应生活QQ交流群（群号：917740212），与开发团队及其他用户实时互动",
         href: "https://qm.qq.com/q/ksVrG9TmSY",
       }, {

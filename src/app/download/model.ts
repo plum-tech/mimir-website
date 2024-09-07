@@ -12,7 +12,7 @@ export interface ArtifactDownload {
   url: Record<string, string>
 }
 
-export const getFirstAvaliableDownload = (
+export const getFirstAvailableDownload = (
   downloads: ArtifactDownload, order?: string[]
 ) => {
   order ??= [downloads.default]

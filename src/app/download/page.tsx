@@ -4,7 +4,7 @@ import Title from "@/components/title";
 import { LinkButton } from "@/components/button"
 import Image from "next/image";
 import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
-import { Artifact, getFirstAvaliableDownload } from "./model";
+import { Artifact, getFirstAvailableDownload } from "./model";
 import { ReleaseInfoCard } from "./comp";
 
 export const revalidate = 60 * 60 // 60 minutes
@@ -13,7 +13,7 @@ export default async function Page() {
   const latest = await fetch("https://g.mysit.life/artifact/latest.json")
   const info = await latest.json() as Artifact
 
-  return <MainFramework className="space-y-2">
+  return <MainFramework>
     <Title
       title="应用下载"
       desc="获取最新版本的小应生活"
@@ -24,7 +24,7 @@ export default async function Page() {
       releaseNote={info.release_note}
     />
     <div className="grid text-center grid-cols-2 p-4 space-x-8">
-      <AndroidCard link={getFirstAvaliableDownload(info.downloads.Android)} />
+      <AndroidCard link={getFirstAvailableDownload(info.downloads.Android)} />
       <IosCard />
     </div>
     <DownloadSourceAds />
@@ -57,7 +57,9 @@ const IosCard = () => {
         src={downloadOnAppStoreBadge}
       />
     </a>
-    加入<a target="_blank" href="https://testflight.apple.com/join/2n5I09Zv" className="link">Test Flight</a>
+    <a target="_blank" href="https://testflight.apple.com/join/2n5I09Zv" className="link">
+      Test Flight
+    </a>
   </Card>
 }
 
