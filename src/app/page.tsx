@@ -152,7 +152,7 @@ const ProductDescriptivePreview = ({
   desc: ReactNode
   image: ReactNode
 }) => {
-  return <div className="flex flex-col  items-center justify-evenly">
+  return <div className="flex flex-col items-center justify-evenly">
     <div className="text-center max-w-full h-auto">
       {image}
     </div>
