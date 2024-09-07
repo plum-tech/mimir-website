@@ -32,7 +32,7 @@ export default function Home() {
         href: "/contact",
       }]} />
 
-      <div className="space-y-8 py-2">
+      <div className="space-y-8 py-2 grid lg:grid-cols-2 xl:grid-cols-3">
         <ProductDescriptiveCard
           title={<>
             课程安排 都到这来
