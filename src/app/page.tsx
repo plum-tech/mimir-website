@@ -32,7 +32,7 @@ export default function Home() {
         href: "/contact",
       }]} />
 
-      <div className="space-y-8 py-2 grid lg:grid-cols-2 xl:grid-cols-3">
+      <div className="space-y-8 py-2 grid lg:grid-cols-2 xl:grid-cols-3 space-x-4">
         <ProductDescriptiveCard
           title={<>
             课程安排 都到这来
@@ -118,8 +118,8 @@ const ProductDesc = ({
   children: ReactNode
 }) => {
   return <>
-    <h2 className="text-3xl font-bold">{title}</h2>
-    <p className="text-gray-500">{children}</p>
+    <h2 className="text-3xl font-bold py-1">{title}</h2>
+    <p className="text-gray-500 py-2">{children}</p>
   </>
 }
 
