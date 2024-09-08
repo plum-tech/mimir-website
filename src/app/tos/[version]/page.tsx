@@ -1,7 +1,7 @@
 import MainFramework from "@/components/main"
 import Title from "@/components/title"
 import dynamic from 'next/dynamic'
-import { notFound, redirect } from "next/navigation"
+import { redirect } from "next/navigation"
 
 const versions = [
   "20240915"
