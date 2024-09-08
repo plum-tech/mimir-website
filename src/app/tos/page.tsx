@@ -1,6 +1,6 @@
 import MainFramework from "@/components/main";
 import Title from "@/components/title";
-import ContentZhHans from "./zh-Hans.mdx"
+import TermsOfServices from "./zh-Hans.mdx"
 
 export default function Page() {
   return <MainFramework>
@@ -9,7 +9,7 @@ export default function Page() {
       desc=""
     />
     <div className="px-4 md:px-8 lg:px-16">
-      <ContentZhHans />
+      <TermsOfServices />
     </div>
   </MainFramework>
 }
