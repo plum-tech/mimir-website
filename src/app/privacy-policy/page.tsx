@@ -1,6 +1,6 @@
 import MainFramework from "@/components/main";
 import Title from "@/components/title";
-import PrivacyPolicy from "./zh-Hans.mdx"
+import PrivacyPolicy from "./zh-Hans.md"
 
 export default function Page() {
   return <MainFramework>
