@@ -20,8 +20,8 @@ export default async function Page({
 
   return <MainFramework>
     <Title
-      title="服务条款"
-      desc=""
+      title="服务协议"
+      desc={`${version}版`}
     />
     <div className="px-4 md:px-8 lg:px-16">
       <DynamicToS />
