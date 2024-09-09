@@ -1,4 +1,3 @@
-import { LinkButton } from "@/components/button"
 import { Card } from "@/components/card"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { ReactNode } from "react"
