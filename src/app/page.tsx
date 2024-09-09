@@ -32,13 +32,14 @@ export default function Home() {
         href: "/contact",
       }]} />
 
-      <div className="space-y-8 py-2 grid lg:grid-cols-2 xl:grid-cols-3 space-x-4">
+      <div className="py-2 grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
         <ProductDescriptiveCard
           title={<>
             课程安排 都到这来
           </>}
           desc={<>
-            无论本科生还是研究生，<br />你的课程 小应统统帮你安排
+            无论本科生还是研究生，<br />
+            你的课程 小应统统帮你安排
           </>}
           image={previewTimetable}
           imageAlt="课程表"
