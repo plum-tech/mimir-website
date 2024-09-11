@@ -57,7 +57,7 @@ const IosCard = () => {
         src={downloadOnAppStoreBadge}
       />
     </a>
-    <a target="_blank" href="https://testflight.apple.com/join/2n5I09Zv" className="link">
+    <a target="_blank" href="https://testflight.apple.com/join/hPeQ13fe" className="link">
       Test Flight
     </a>
   </Card>
