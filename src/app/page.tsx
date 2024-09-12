@@ -71,8 +71,8 @@ export default function Home() {
             休闲娱乐 欢度课余
           </>}
           desc={<>
-            闲着无聊没事干？<br />
-            上小应，多种游戏等你玩
+            闲暇之余没事干？<br />
+            上小应，多款小游戏任你畅玩
           </>}
           image={previewGame}
           imageAlt="扫雷"
