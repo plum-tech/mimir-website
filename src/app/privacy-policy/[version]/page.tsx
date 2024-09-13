@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import { redirect } from "next/navigation"
 
 const versions = [
-  "20240912"
+  "20240913"
 ]
 
 export default async function Page({
@@ -14,7 +14,7 @@ export default async function Page({
 }) {
   const { version } = params
   if (!versions.includes(version)) {
-    return redirect("/tos/20240915")
+    return redirect(`/privacy-policy/${versions[0]}`)
   }
   const DynamicPriacyPolicy = dynamic(() => import(`../${version}.md`))
 
