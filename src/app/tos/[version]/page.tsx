@@ -2,10 +2,7 @@ import MainFramework from "@/components/main"
 import Title from "@/components/title"
 import dynamic from 'next/dynamic'
 import { redirect } from "next/navigation"
-
-const versions = [
-  "20240913"
-]
+import { tosVersions } from "../version"
 
 export default async function Page({
   params
@@ -13,10 +10,10 @@ export default async function Page({
   params: { version: string }
 }) {
   const { version } = params
-  if (!versions.includes(version)) {
-    return redirect(`/tos/${versions[0]}`)
+  if (!tosVersions.includes(version)) {
+    return redirect(`/tos/${tosVersions[0]}`)
   }
-  const DynamicToS = dynamic(() => import(`../${version}.md`))
+  const DynamicToS = dynamic(() => import(`../list/${version}.md`))
 
   return <MainFramework>
     <Title

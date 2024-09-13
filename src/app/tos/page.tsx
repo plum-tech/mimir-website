@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
+import { tosVersions } from "./version";
 
 export default function Page() {
-  return redirect("/tos/20240912")
+  return redirect(`/tos/${tosVersions[0]}`)
 }

@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
+import { privacyPolicyVersions } from "./version";
 
 export default function Page() {
-  return redirect("/privacy-policy/20240912")
+  return redirect(`/privacy-policy/${privacyPolicyVersions[0]}`)
 }

@@ -2,10 +2,8 @@ import MainFramework from "@/components/main"
 import Title from "@/components/title"
 import dynamic from 'next/dynamic'
 import { redirect } from "next/navigation"
+import { privacyPolicyVersions } from "../version"
 
-const versions = [
-  "20240913"
-]
 
 export default async function Page({
   params
@@ -13,10 +11,10 @@ export default async function Page({
   params: { version: string }
 }) {
   const { version } = params
-  if (!versions.includes(version)) {
-    return redirect(`/privacy-policy/${versions[0]}`)
+  if (!privacyPolicyVersions.includes(version)) {
+    return redirect(`/privacy-policy/${privacyPolicyVersions[0]}`)
   }
-  const DynamicPriacyPolicy = dynamic(() => import(`../${version}.md`))
+  const DynamicPriacyPolicy = dynamic(() => import(`../list/${version}.md`))
 
   return <MainFramework>
     <Title
