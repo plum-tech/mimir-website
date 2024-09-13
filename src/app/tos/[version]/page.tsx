@@ -13,7 +13,9 @@ export default async function Page({
   if (!tosVersions.includes(version)) {
     return redirect(`/tos/${tosVersions[0]}`)
   }
-  const DynamicToS = dynamic(() => import(`../list/${version}.md`))
+  const DynamicToS = dynamic(() => import(`../list/${version}.md`), {
+    ssr: true
+  })
 
   return <MainFramework>
     <Title

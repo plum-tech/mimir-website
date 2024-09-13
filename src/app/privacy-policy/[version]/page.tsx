@@ -14,7 +14,9 @@ export default async function Page({
   if (!privacyPolicyVersions.includes(version)) {
     return redirect(`/privacy-policy/${privacyPolicyVersions[0]}`)
   }
-  const DynamicPriacyPolicy = dynamic(() => import(`../list/${version}.md`))
+  const DynamicPriacyPolicy = dynamic(() => import(`../list/${version}.md`), {
+    ssr: true
+  })
 
   return <MainFramework>
     <Title
