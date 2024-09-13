@@ -1,3 +1,2 @@
-export const tosVersions = [
-  "20240913"
-]
+import { resolveAllVersions } from "@/utils/resolve-terms-version";
+export const tosVersions = resolveAllVersions(import.meta.url, ".md", "..", "/list")
