@@ -17,10 +17,12 @@ const sections: FooterSection[] = [{
   }, {
     label: "关于我们",
     href: "/about",
-  }, {
-    label: "意见反馈",
-    href: "/feedback",
-  },]
+  }, 
+  // {
+  //   label: "意见反馈",
+  //   href: "/feedback",
+  // },
+]
 }, {
   label: "协议",
   items: [{

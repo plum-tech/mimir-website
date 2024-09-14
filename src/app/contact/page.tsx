@@ -21,10 +21,12 @@ export default function Page() {
         title: "微信公众号",
         desc: '打开微信搜索"小应生活"，关注我们，掌握第一手资讯',
         href: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzk0NDYyNjY0Nw==#wechat_redirect",
-      }, {
-        title: "留言反馈",
-        desc: '在此网站上留下您的意见，我们会记录并提交给对应的团队',
-        href: "/feedback",
-      }]} />
+      }, 
+      // {
+      //   title: "留言反馈",
+      //   desc: '在此网站上留下您的意见，我们会记录并提交给对应的团队',
+      //   href: "/feedback",
+      // }
+      ]} />
     </MainFramework>)
 }

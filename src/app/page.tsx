@@ -100,11 +100,13 @@ export default function Home() {
           imageAlt="英文的设置界面"
         />
       </div>
-      <HomeButtonGroup actions={[{
-        title: "意见反馈",
-        desc: "欢迎您提出宝贵的建议，反馈遇到的问题，帮助我们改进小应生活",
-        href: "/feedback",
-      }, {
+      <HomeButtonGroup actions={[
+      //   {
+      //   title: "意见反馈",
+      //   desc: "欢迎您提出宝贵的建议，反馈遇到的问题，帮助我们改进小应生活",
+      //   href: "/feedback",
+      // },
+       {
         title: "关于我们",
         desc: "深入了解小应生活及其背后的团队",
         href: "/about",
