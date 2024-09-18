@@ -17,7 +17,10 @@ const GreetContributor = ({ contact }: { contact: ContributorContact }) => {
     case 'wechat':
       return <div>微信：{contact.content}</div>;
     case 'url':
-      return <a href={contact.content} className="block">网址：{contact.content}</a>;;
+      return <div>网址：
+        <a href={contact.content} className="link">{contact.content}</a>
+      </div>
+      
 
   }
 };
