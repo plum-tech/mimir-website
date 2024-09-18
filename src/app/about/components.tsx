@@ -9,8 +9,8 @@ const ContributorContactRow = ({ contact }: { contact: ContributorContact }) => 
       return <div>电话：{contact.content}</div>;
     case 'email':
       return <div>
-      邮箱： 
-      <a href={`mailto:${contact.content}`} className="link">{contact.content}</a>
+        邮箱：
+        <a href={`mailto:${contact.content}`} className="link">{contact.content}</a>
       </div>;
     case 'qq':
       return <div>QQ: {contact.content}</div>;
@@ -19,7 +19,7 @@ const ContributorContactRow = ({ contact }: { contact: ContributorContact }) => 
     case 'url':
       return <div>网址：
         <a href={contact.content} className="link">{contact.content}</a>
-      </div>   
+      </div>
   }
 }
 
@@ -40,14 +40,12 @@ export interface PMembersProps {
   text?: string;
 }
 
-export const PText: React.FC<PMembersProps> = ({ width = 'w-40', bgColor = 'bg-green-500', text = '活跃成员' }) => {
+export const PText: React.FC<PMembersProps> = ({ bgColor = 'bg-green-500', text = '活跃成员' }) => {
   return (
-    <div className={width}>
-      <br />
-      <p className={`block ${width} p-3 ${bgColor} text-white text-center rounded-lg shadow-md`}>
+    <div className={`${bgColor} rounded-lg`}>
+      <p className={`p-3 text-white text-center`}>
         {text}
       </p>
-      <br />
     </div>
   );
 };
