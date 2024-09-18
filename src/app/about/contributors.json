@@ -1,5 +1,16 @@
 [
   {
+    "name": "Liplum",
+    "contact": [
+      {
+        "type": "email",
+        "content": "Li_plum@outlook.com"
+      }
+    ],
+    "description": "小应生活开发；服务器支持；小应生活初创人",
+    "startDate": "2024-08"
+  },
+  {
     "name": "MK学姐",
     "contact": [
       {
@@ -11,18 +22,7 @@
         "content": "734376734@qq.com"
       }
     ],
-    "description": "小应生活负责人，宣传，招募，小应生活初创人",
-    "startDate": "2024-08"
-  },
-  {
-    "name": "Liplum",
-    "contact": [
-      {
-        "type": "email",
-        "content": "Li_plum@outlook.com"
-      }
-    ],
-    "description": "小应生活开发，小应社区开发，小应生活初创人",
+    "description": "小应生活负责人；宣传；人员招募；小应生活初创人",
     "startDate": "2024-08"
   },
   {
@@ -33,8 +33,31 @@
         "content": "1239878015"
       }
     ],
-    "description": "人员招募，资金支持，小应生活初创人",
+    "description": "人员招募；资金支持；小应生活初创人",
     "startDate": "2023-08"
+  },
+  {
+    "name": "洛狼狼",
+    "contact": [
+      {
+        "type": "qq",
+        "content": "3051467276"
+      }
+    ],
+    "description": "软件测试；小应生活 QQ Bot 开发；",
+    "startDate": "2023-10"
+  },
+  {
+    "name": "Gracie",
+    "contact": [
+      {
+        "type": "wechat",
+        "content": "pp9_1026"
+      }
+    ],
+    "description": "UI 设计；icon 设计；小应生活初创人",
+    "startDate": "2023-09",
+    "endDate": "2024-06"
   },
   {
     "name": "伍振浩",
@@ -49,29 +72,6 @@
     "endDate": "2024-06"
   },
   {
-    "name": "Gracie",
-    "contact": [
-      {
-        "type": "wechat",
-        "content": "pp9_1026"
-      }
-    ],
-    "description": "软件UI设计，ICON设计，小应生活初创人",
-    "startDate": "2023-09",
-    "endDate": "2024-06"
-  },
-  {
-    "name": "洛狼狼",
-    "contact": [
-      {
-        "type": "qq",
-        "content": "3051467276"
-      }
-    ],
-    "description": "软件测试",
-    "startDate": "2023-10"
-  },
-  {
     "name": "Henry",
     "contact": [
       {
@@ -79,7 +79,7 @@
         "content": "HenrySky64@outlook.com"
       }
     ],
-    "description": "娱乐小游戏扫雷部分开发，宣传",
+    "description": "小游戏扫雷开发；宣传",
     "startDate": "2023-12",
     "endDate": "2024-01"
   },
