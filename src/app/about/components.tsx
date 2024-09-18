@@ -33,21 +33,3 @@ export const ContributorCard = ({ info }: { info: ContributorInfo }) => {
     </Card>
   )
 }
-
-export interface PMembersProps {
-  width?: string;
-  bgColor?: string;
-  text?: string;
-}
-
-export const PText: React.FC<PMembersProps> = ({ bgColor = 'bg-green-500', text = '活跃成员' }) => {
-  return (
-    <div className={`${bgColor} rounded-lg`}>
-      <p className={`p-3 text-white text-center`}>
-        {text}
-      </p>
-    </div>
-  );
-};
-
-export default PText;
