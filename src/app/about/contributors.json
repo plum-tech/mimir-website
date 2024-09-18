@@ -5,6 +5,10 @@
       {
         "type": "email",
         "content": "Li_plum@outlook.com"
+      },
+      {
+        "type": "url",
+        "content": "https://github.com/liplum"
       }
     ],
     "description": "小应生活开发；服务器支持；小应生活初创人",
