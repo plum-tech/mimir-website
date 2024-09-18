@@ -6,18 +6,18 @@ import { ContributorContact } from "./list"
 const GreetContributor = ({ contact }: { contact: ContributorContact }) => {
   switch (contact.type) {
     case 'phone':
-      return <div>phone : {contact.content}</div>;
+      return <div>电话：{contact.content}</div>;
     case 'email':
       return <div>
-      email : 
-      <a href={`mailto:}${contact.content}`} className="link">{contact.content}</a>
+      邮箱： 
+      <a href={`mailto:${contact.content}`} className="link">{contact.content}</a>
       </div>;
     case 'qq':
-      return <div>qq : {contact.content}</div>;
+      return <div>QQ: {contact.content}</div>;
     case 'wechat':
-      return <div>wechat : {contact.content}</div>;
+      return <div>微信：{contact.content}</div>;
     case 'url':
-      return <a href={contact.content} className="block">url : {contact.content}</a>;;
+      return <a href={contact.content} className="block">网址：{contact.content}</a>;;
 
   }
 };

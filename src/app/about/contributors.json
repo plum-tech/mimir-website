@@ -97,5 +97,20 @@
     ],
     "description": "服务器支持，部分小应社区开发",
     "startDate": "2024-3"
+  },
+  {
+    "name": "胡澄宇",
+    "contact": [
+      {
+        "type": "wechat",
+        "content": "xms0gjl24"
+      },
+      {
+        "type": "email",
+        "content": "sh1212121245@126.com"
+      }
+    ],
+    "description": "前端官网实现",
+    "startDate": "2024-9"
   }
 ]
