@@ -4,19 +4,25 @@
 
 ### Install dependencies
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `pnpm`:
+This project uses `pnpm` as package manager.
+
+Run the following command to install all dependencies.
 
 ```bash
 pnpm install
 ```
 
-### Run the development server
+Run the following command to development server.
 
 ```bash
 pnpm run dev
 ```
 
 ### How to build
+
+Ensure you've installed docker on your machine.
+
+Run the following command to build a docker image with a sepcific tag.
 
 ```bash
 docker build . -t cr.liplum.net/mimir/website:<tag>
