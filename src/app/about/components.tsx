@@ -3,7 +3,7 @@ import { ContributorInfo } from "./list"
 import { ContributorContact } from "./list"
 
 
-const GreetContributor = ({ contact }: { contact: ContributorContact }) => {
+const ContributorContactRow = ({ contact }: { contact: ContributorContact }) => {
   switch (contact.type) {
     case 'phone':
       return <div>电话：{contact.content}</div>;
@@ -19,20 +19,18 @@ const GreetContributor = ({ contact }: { contact: ContributorContact }) => {
     case 'url':
       return <div>网址：
         <a href={contact.content} className="link">{contact.content}</a>
-      </div>
-      
-
+      </div>   
   }
-};
+}
 
 export const ContributorCard = ({ info }: { info: ContributorInfo }) => {
   return (
     <Card header={info.name}>
       {info.contact.map((contact, index) => (
-        <GreetContributor key={index} contact={contact} />
+        <ContributorContactRow key={index} contact={contact} />
       ))}
       {info.description}
     </Card>
-  );
-};
+  )
+}
 
