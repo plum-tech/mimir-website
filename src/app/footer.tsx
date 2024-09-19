@@ -7,7 +7,7 @@ const sections: FooterSection[] = [{
     href: "/download",
   }, {
     label: "开源仓库",
-    href: "https://github.com/liplum-dev/mimir",
+    href: "https://github.com/plum-tech/mimir",
   },]
 }, {
   label: "帮助",
@@ -44,7 +44,7 @@ const sections: FooterSection[] = [{
 }]
 const quickContacts: QuickContact[] = [{
   desc: "GitHub",
-  href: "https://github.com/liplum-dev/mimir-website",
+  href: "https://github.com/plum-tech/mimir-website",
   target: "_blank",
   icon: <SiGithub />,
 }]
