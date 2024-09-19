@@ -11,7 +11,7 @@
         "content": "https://github.com/liplum"
       }
     ],
-    "description": "小应生活开发；服务器支持；小应生活初创人",
+    "description": "小应生活初创人；小应生活开发；服务器支持",
     "startDate": "2024-08"
   },
   {
@@ -26,7 +26,7 @@
         "content": "734376734@qq.com"
       }
     ],
-    "description": "小应生活负责人；宣传；人员招募；小应生活初创人",
+    "description": "小应生活初创人；小应生活负责人；宣传；人员招募",
     "startDate": "2024-08"
   },
   {
@@ -37,8 +37,9 @@
         "content": "1239878015"
       }
     ],
-    "description": "人员招募；资金支持；小应生活初创人",
-    "startDate": "2023-08"
+    "description": "小应生活初创人；人员招募；资金支持",
+    "startDate": "2023-08",
+    "endDate": "2024-06"
   },
   {
     "name": "洛狼狼",
@@ -59,7 +60,7 @@
         "content": "pp9_1026"
       }
     ],
-    "description": "UI 设计；icon 设计；小应生活初创人",
+    "description": "小应生活初创人；UI 设计；icon 设计",
     "startDate": "2023-09",
     "endDate": "2024-06"
   },
@@ -83,7 +84,7 @@
         "content": "HenrySky64@outlook.com"
       }
     ],
-    "description": "小游戏扫雷开发；宣传",
+    "description": "小游戏扫雷开发；宣传；小应生活初创人",
     "startDate": "2023-12",
     "endDate": "2024-01"
   },
@@ -127,5 +128,16 @@
     ],
     "description": "前端官网实现",
     "startDate": "2024-9"
+  },
+  {
+    "name": "udon",
+    "contact": [
+      {
+        "type": "wechat",
+        "content": "B612-xkm0622"
+      }
+    ],
+    "description": "艺术设计；团队IP设计；文创产品设计",
+    "startDate": "2024-7"
   }
 ]
