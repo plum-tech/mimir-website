@@ -25,12 +25,14 @@
     "rehype": "^13.0.1",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/ua-parser-js": "^0.7.39",
     "eslint": "^8",
     "eslint-config-next": "14.2.10",
     "postcss": "^8",

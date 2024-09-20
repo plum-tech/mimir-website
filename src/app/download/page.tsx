@@ -6,6 +6,7 @@ import Image from "next/image";
 import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
 import { Artifact, getFirstAvailableDownload } from "./model";
 import { ReleaseInfoCard } from "./comp";
+import { WechatOpenInBrowserOverlay } from "@/components/wechat";
 
 export const revalidate = 60 * 60 // 60 minutes
 
@@ -28,6 +29,7 @@ export default async function Page() {
       <IosCard />
     </div>
     <DownloadSourceAds />
+    <WechatOpenInBrowserOverlay />
   </MainFramework>
 }
 
@@ -57,7 +59,7 @@ const IosCard = () => {
     </h2>
   }>
     <div className="space-y-2">
-      <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112">
+      <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112" className="block">
         <Image
           alt="从 App Store 获取小应生活"
           src={downloadOnAppStoreBadge}
