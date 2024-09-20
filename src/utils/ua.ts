@@ -16,8 +16,12 @@ export const useUserAgent = (): UA => {
   }, [])
   return {
     ...ua,
-    isWechat: ua.browser.name?.toLowerCase().includes("wechat") ?? false,
+    isWechat: includes(ua.browser.name, "wechat"),
     isMobile: ua.device.type === "mobile",
-    isAndroid: ua.os.name?.toLowerCase().includes("android") ?? false,
+    isAndroid: includes(ua.os.name, "android"),
   }
+}
+
+const includes = (full: string | undefined, search: string) => {
+  return full?.toLowerCase().includes(search) ?? false
 }
