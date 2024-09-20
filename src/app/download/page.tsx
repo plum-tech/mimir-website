@@ -23,7 +23,7 @@ export default async function Page() {
       releaseTime={new Date(info.release_time).toLocaleString()}
       releaseNote={info.release_note}
     />
-    <div className="grid text-center grid-cols-2 p-4 space-x-8">
+    <div className="grid text-center grid-cols-2 p-4 gap-8">
       <AndroidCard link={getFirstAvailableDownload(info.downloads.Android)} />
       <IosCard />
     </div>
@@ -39,9 +39,14 @@ const AndroidCard = ({ link }: {
       安卓
     </h2>
   }>
-    <LinkButton target="_blank" href={link}>
-      下载应用
-    </LinkButton>
+    <div className="space-y-2">
+      <LinkButton target="_blank" href={link}>
+        下载应用
+      </LinkButton>
+      <a target="_blank" href="market://details?id=life.mysit.sit_life" className="link block">
+        从应用商店获取
+      </a>
+    </div>
   </Card>
 }
 
@@ -51,15 +56,17 @@ const IosCard = () => {
       iOS
     </h2>
   }>
-    <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112">
-      <Image
-        alt="从 App Store 获取小应生活"
-        src={downloadOnAppStoreBadge}
-      />
-    </a>
-    <a target="_blank" href="https://testflight.apple.com/join/hPeQ13fe" className="link">
-      Test Flight
-    </a>
+    <div className="space-y-2">
+      <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112">
+        <Image
+          alt="从 App Store 获取小应生活"
+          src={downloadOnAppStoreBadge}
+        />
+      </a>
+      <a target="_blank" href="https://testflight.apple.com/join/hPeQ13fe" className="link block">
+        加入 Test Flight
+      </a>
+    </div>
   </Card>
 }
 
