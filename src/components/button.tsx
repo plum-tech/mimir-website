@@ -7,10 +7,11 @@ export const LinkButton = ({
   href?: string
   target?: HTMLAttributeAnchorTarget
 }) => {
-  return <div className="inline-block bg-[#1c734f] hover:bg-[#166242] focus:ring-blue-300 rounded-2xl px-5 py-2.5">
+  return (
     <a href={href} target={target} className="text-white font-medium text-sm">
-      {children}
+      <div className="inline-block bg-[#1c734f] hover:bg-[#166242] focus:ring-blue-300 rounded-2xl px-5 py-2.5">
+        {children}
+      </div>
     </a>
-  </div>
-
+  )
 }

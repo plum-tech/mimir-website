@@ -22,7 +22,7 @@ export default async function Page() {
     />
     <ReleaseInfoCard
       version={`v${info.version}`}
-      releaseTime={<ToLocaleString date={new Date(info.release_time)}/>}
+      releaseTime={<ToLocaleString date={new Date(info.release_time)} />}
       releaseNote={info.release_note}
     />
     <div className="grid text-center grid-cols-2 p-4 gap-8">
@@ -43,11 +43,11 @@ const AndroidCard = ({ link }: {
     </h2>
   }>
     <div className="space-y-2">
-      <LinkButton target="_blank" href={link}>
-        下载应用
-      </LinkButton>
-      <a target="_blank" href="market://details?id=life.mysit.sit_life" className="link block">
+      <LinkButton target="_blank" href="market://details?id=life.mysit.sit_life">
         从应用商店获取
+      </LinkButton>
+      <a target="_blank" href={link} className="link block">
+        下载APK文件
       </a>
     </div>
   </Card>
@@ -60,10 +60,11 @@ const IosCard = () => {
     </h2>
   }>
     <div className="space-y-2">
-      <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112" className="block">
+      <a target="_blank" href="https://apps.apple.com/cn/app/id6468989112" className="flex justify-center">
         <Image
           alt="从 App Store 获取小应生活"
           src={downloadOnAppStoreBadge}
+          className=""
         />
       </a>
       <a target="_blank" href="https://testflight.apple.com/join/hPeQ13fe" className="link block">
