@@ -1,12 +1,12 @@
 import MainFramework from "@/components/main"
 import Title from "@/components/title";
 import { HomeButtonGroup } from "@/components/home-button";
-import previewGame from "./preview-game.png"
-import previewTimetable from "./preview-timetable.png"
-import previewI18n from "./preview-i18n.png"
-import previewSecondClass from "./preview-second-class.png"
-import previewLife from "./preview-life.png"
-import previewP13n from "./preview-p13n.png"
+import previewGame from "./preview/game.png"
+import previewTimetable from "./preview/timetable.png"
+import previewI18n from "./preview/i18n.png"
+import previewSecondClass from "./preview/second-class.png"
+import previewLife from "./preview/life.png"
+import previewP13n from "./preview/p13n.png"
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Card } from "@/components/card";
