@@ -6,6 +6,7 @@ import { Card } from "./card"
 import {
   EllipsisHorizontalIcon,
 } from '@heroicons/react/24/outline'
+
 export const WechatOpenInBrowserOverlay = () => {
   const ua = useUserAgent()
   if (!(ua.isMobile && ua.isWechat && ua.isAndroid)) return <></>

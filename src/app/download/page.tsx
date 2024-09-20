@@ -7,6 +7,7 @@ import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
 import { Artifact, getFirstAvailableDownload } from "./model";
 import { ReleaseInfoCard } from "./comp";
 import { WechatOpenInBrowserOverlay } from "@/components/wechat";
+import { ToLocaleString } from "@/components/date"
 
 export const revalidate = 60 * 60 // 60 minutes
 
@@ -21,7 +22,7 @@ export default async function Page() {
     />
     <ReleaseInfoCard
       version={`v${info.version}`}
-      releaseTime={new Date(info.release_time).toLocaleString()}
+      releaseTime={<ToLocaleString date={new Date(info.release_time)}/>}
       releaseNote={info.release_note}
     />
     <div className="grid text-center grid-cols-2 p-4 gap-8">
