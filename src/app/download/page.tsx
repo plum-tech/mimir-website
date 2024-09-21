@@ -4,7 +4,7 @@ import Title from "@/components/title";
 import { LinkButton } from "@/components/button"
 import Image from "next/image";
 import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
-import { Artifact, getFirstAvailableDownload } from "./model";
+import { VersionInfo } from "./model";
 import { ReleaseInfoCard } from "./comp";
 import { WechatOpenInBrowserOverlay } from "@/components/wechat";
 import { ToLocaleString } from "@/components/date"
@@ -12,8 +12,8 @@ import { ToLocaleString } from "@/components/date"
 export const revalidate = 60 * 60 // 60 minutes
 
 export default async function Page() {
-  const latest = await fetch("https://g.mysit.life/artifact/latest.json")
-  const info = await latest.json() as Artifact
+  const latest = await fetch("https://g.mysit.life/v1/release/latest")
+  const info = await latest.json() as VersionInfo
 
   return <MainFramework>
     <Title
@@ -22,11 +22,11 @@ export default async function Page() {
     />
     <ReleaseInfoCard
       version={`v${info.version}`}
-      releaseTime={<ToLocaleString date={new Date(info.release_time)} />}
-      releaseNote={info.release_note}
+      releaseTime={<ToLocaleString date={new Date(info.time)} />}
+      releaseNote={info.releaseNote}
     />
     <div className="grid text-center grid-cols-2 p-4 gap-8">
-      <AndroidCard link={getFirstAvailableDownload(info.downloads.Android)} />
+      <AndroidCard link={info.assets.Android.defaultSrc} />
       <IosCard />
     </div>
     <DownloadSourceAds />
@@ -46,9 +46,12 @@ const AndroidCard = ({ link }: {
       <LinkButton target="_blank" href="market://details?id=life.mysit.sit_life">
         从应用商店获取
       </LinkButton>
-      <a target="_blank" href={link} className="link block">
-        下载APK文件
-      </a>
+      {
+        link &&
+        <a target="_blank" href={link} className="link block">
+          下载APK文件
+        </a>
+      }
     </div>
   </Card>
 }

@@ -1,24 +1,28 @@
-export interface Artifact {
+export type ReleaseNote = {
+  "zh-Hans": string;
+  en?: string | undefined;
+}
+
+export type AndroidAssets = {
+  fileName: string;
+  defaultSrc: string;
+  src: Record<string, string>;
+}
+
+export enum ImportanceLevel {
+  critical = "critical",
+  high = "high",
+  normal = "normal",
+  low = "low",
+}
+
+export type VersionInfo = {
   version: string
-  release_time: string
-  release_note: string
-  downloads: Record<string, ArtifactDownload>
-}
-
-export interface ArtifactDownload {
-  name: string
-  default: string
-  sha256: string
-  url: Record<string, string>
-}
-
-export const getFirstAvailableDownload = (
-  downloads: ArtifactDownload, order?: string[]
-) => {
-  order ??= [downloads.default]
-  for (const src of order) {
-    const url = downloads.url[src]
-    if (url) return url
+  time: string
+  importance: ImportanceLevel
+  releaseNote: ReleaseNote
+  assets: {
+    Android: AndroidAssets
   }
-  return downloads.url[downloads.default]
+  delayInMinute: number
 }

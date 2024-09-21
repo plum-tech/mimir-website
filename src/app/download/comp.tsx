@@ -2,13 +2,14 @@ import { Card } from "@/components/card"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { ReactNode } from "react"
 import { MoreDownloads } from "./client-comp"
+import { ReleaseNote } from "./model"
 
 export const ReleaseInfoCard = ({
   version, releaseTime, releaseNote
 }: {
   version: ReactNode
   releaseTime: ReactNode
-  releaseNote: string
+  releaseNote: ReleaseNote
 }) => {
   return <Card
     header={
@@ -23,7 +24,7 @@ export const ReleaseInfoCard = ({
     }
   >
     <article>
-      <MDXRemote source={releaseNote} />
+      <MDXRemote source={releaseNote["zh-Hans"]} />
     </article>
   </Card >
 }
