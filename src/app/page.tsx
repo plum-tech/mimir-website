@@ -141,20 +141,21 @@ const ProductDescriptiveCard = ({
   image: typeof previewI18n
   classNameCard?: string
 }) => {
-  return <Card classNameCard={`${classNameCard}`}>
+  return (//<Card classNameCard={`${classNameCard}`}>
     <Card classNameCard="m-1 md:m-3 p-0">
-    <ProductDescriptivePreview desc={
-      <ProductDesc title={title}>
-        {desc}
-      </ProductDesc>}
-      image={<Image
-        alt={imageAlt ?? ""}
-        src={image}
-        className="w-80  rounded-2xl"
-      />}
-    />
+      <ProductDescriptivePreview desc={
+        <ProductDesc title={title}>
+          {desc}
+        </ProductDesc>}
+        image={<Image
+          alt={imageAlt ?? ""}
+          src={image}
+          className="w-80  rounded-2xl"
+        />}
+      />
     </Card>
-  </Card>
+    // </Card>
+  )
 }
 
 

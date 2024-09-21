@@ -44,7 +44,7 @@ const AndroidCard = ({ link }: {
   }>
     <div className="space-y-2">
       <LinkButton target="_blank" href="market://details?id=life.mysit.sit_life">
-        从应用商店获取
+        应用商店
       </LinkButton>
       {
         link &&
