@@ -17,7 +17,7 @@ export const useUserAgent = (): UA => {
   }, [])
   return {
     ...ua,
-    isQQ: includes(ua.browser.name, "qq"),
+    isQQ: equal(ua.browser.name, "qq"),
     isWechat: includes(ua.browser.name, "wechat"),
     isMobile: ua.device.type === "mobile",
     isAndroid: includes(ua.os.name, "android"),
@@ -26,4 +26,8 @@ export const useUserAgent = (): UA => {
 
 const includes = (full: string | undefined, search: string) => {
   return full?.toLowerCase().includes(search) ?? false
+}
+
+const equal = (a: string | undefined, b: string) => {
+  return a?.toLowerCase() === b
 }
