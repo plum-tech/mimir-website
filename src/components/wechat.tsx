@@ -9,7 +9,7 @@ import {
 
 export const WechatOpenInBrowserOverlay = () => {
   const ua = useUserAgent()
-  if (!(ua.isMobile && ua.isWechat && ua.isAndroid)) return <></>
+  if (!(ua.isMobile && ua.isAndroid && (ua.isWechat || ua.isQQ))) return <></>
   return <div className='overflow-y-hidden overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-black/80'>
     <div className="absolute inset-y-8 inset-x-0 w-3/4 mx-auto">
       <Card>

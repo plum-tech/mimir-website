@@ -4,6 +4,7 @@ import { useMemo } from "react"
 import UserAgent from "ua-parser-js"
 
 interface UA extends UserAgent.IResult {
+  isQQ: boolean
   isWechat: boolean
   isMobile: boolean
   isAndroid: boolean
@@ -16,6 +17,7 @@ export const useUserAgent = (): UA => {
   }, [])
   return {
     ...ua,
+    isQQ: includes(ua.browser.name, "qq"),
     isWechat: includes(ua.browser.name, "wechat"),
     isMobile: ua.device.type === "mobile",
     isAndroid: includes(ua.os.name, "android"),
