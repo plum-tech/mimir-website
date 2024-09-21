@@ -34,6 +34,7 @@ export default function Home() {
 
       <div className="py-2 grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
         <ProductDescriptiveCard
+          // classNameCard="bg-[#e3b4cc]"
           title={<>
             课程安排 都到这来
           </>}
@@ -45,6 +46,7 @@ export default function Home() {
           imageAlt="课程表"
         />
         <ProductDescriptiveCard
+          // classNameCard="bg-[#b6e3b4]"
           title={<>
             消费电费 不忘缴费
           </>}
@@ -56,6 +58,7 @@ export default function Home() {
           imageAlt="消费记录和电费余额"
         />
         <ProductDescriptiveCard
+          // classNameCard="bg-[#bab4e3]"
           title={<>
             第二课堂 一键展示
           </>}
@@ -67,6 +70,7 @@ export default function Home() {
           imageAlt="第二课堂分数"
         />
         <ProductDescriptiveCard
+          // classNameCard="bg-[#f2f0c0]"
           title={<>
             休闲娱乐 欢度课余
           </>}
@@ -78,6 +82,7 @@ export default function Home() {
           imageAlt="扫雷"
         />
         <ProductDescriptiveCard
+          // classNameCard="bg-[#e3b4b8]"
           title={<>
             自定界面 时尚单品
           </>}
@@ -89,6 +94,7 @@ export default function Home() {
           imageAlt="课表配色方案和单元格格式"
         />
         <ProductDescriptiveCard
+          // classNameCard="bg-[#b4e0e3]"
           title={<>
             多种语言 轻松切换
           </>}
@@ -127,14 +133,16 @@ const ProductDesc = ({
 }
 
 const ProductDescriptiveCard = ({
-  title, desc, image, imageAlt
+  title, desc, image, imageAlt, classNameCard
 }: {
   title: ReactNode
   desc?: ReactNode
   imageAlt?: string
   image: typeof previewI18n
+  classNameCard?: string
 }) => {
-  return <Card>
+  return <Card classNameCard={`${classNameCard}`}>
+    <Card classNameCard="m-1 md:m-3 p-0">
     <ProductDescriptivePreview desc={
       <ProductDesc title={title}>
         {desc}
@@ -142,9 +150,10 @@ const ProductDescriptiveCard = ({
       image={<Image
         alt={imageAlt ?? ""}
         src={image}
-        className="w-80"
+        className="w-80  rounded-2xl"
       />}
     />
+    </Card>
   </Card>
 }
 
@@ -162,7 +171,6 @@ const ProductDescriptivePreview = ({
     <div className="text-center pt-4">
       {desc}
     </div>
-
   </div>
 }
 

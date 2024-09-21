@@ -76,6 +76,6 @@ const IosCard = () => {
 
 const DownloadSourceAds = () => {
   return <Card>
-    💰安卓下载由 <a className="link" href="https://www.sitmc.club/">上海应用技术大学Minecraft六角恐龙社群</a> 提供赞助
+    💰安卓APK下载由 <a className="link" href="https://www.sitmc.club/">上海应用技术大学Minecraft六角恐龙社群</a> 提供赞助
   </Card>
 }
