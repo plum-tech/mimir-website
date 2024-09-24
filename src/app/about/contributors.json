@@ -49,7 +49,7 @@
         "content": "3051467276"
       }
     ],
-    "description": "软件测试；小应生活 QQ Bot 开发；",
+    "description": "软件测试；Apple 服务支持；小应生活 QQ Bot 开发；",
     "startDate": "2023-10"
   },
   {
@@ -138,6 +138,17 @@
       }
     ],
     "description": "艺术设计；团队IP设计；文创产品设计",
+    "startDate": "2024-7"
+  },
+  {
+    "name": "新云鸟Lucky",
+    "contact": [
+      {
+        "type": "email",
+        "content": "1342979416@qq.com"
+      }
+    ],
+    "description": "后端开发；",
     "startDate": "2024-7"
   }
 ]
