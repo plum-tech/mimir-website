@@ -61,7 +61,7 @@ export default function Footer() {
       <br />
       <a rel="nofollow" href="https://beian.miit.gov.cn"
         className="underline"
-      >沪ICP备2024077945号-2</a>
+      >沪ICP备2024077945号-7</a>
     </FooterFramework>
   </div>
 }

@@ -12,7 +12,7 @@ import { ToLocaleString } from "@/components/date"
 export const revalidate = 60 * 60 // 60 minutes
 
 export default async function Page() {
-  const latest = await fetch("https://g.mysit.life/v1/release/latest")
+  const latest = await fetch("https://version.xiaoying.life/v1/release/latest")
   const info = await latest.json() as VersionInfo
 
   return <MainFramework>
