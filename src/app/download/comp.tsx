@@ -1,7 +1,6 @@
 import { Card } from "@/components/card"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { ReactNode } from "react"
-import { MoreDownloads } from "./client-comp"
 import { ReleaseNote } from "./model"
 
 export const ReleaseInfoCard = ({
@@ -27,20 +26,4 @@ export const ReleaseInfoCard = ({
       <MDXRemote source={releaseNote["zh-Hans"]} />
     </article>
   </Card >
-}
-
-export const AllVersionDownloads = () => {
-  return <MoreDownloads versions={[
-    "2.1.1+16",
-    "2.1.2+18",
-    "2.1.3+19",
-    "2.3.0+25",
-    "2.3.1+26",
-    "2.3.2+27",
-    "2.4.0+40",
-    "2.4.1+44",
-    "2.4.2+453",
-    "2.4.3+456",
-    "2.5.2+471",
-  ]} />
 }
