@@ -1,8 +1,6 @@
 # SIT Life Website
 
-## How to contribute
-
-### Install dependencies
+## Install dependencies
 
 This project uses `pnpm` as package manager.
 
@@ -18,7 +16,17 @@ Run the following command to development server.
 pnpm run dev
 ```
 
-### How to build
+## How to build
+
+Run the following command to build the website.
+
+```bash
+pnpm build
+```
+
+## How to deploy
+
+### Build docker image
 
 Ensure you've installed docker on your machine.
 
@@ -29,7 +37,7 @@ docker build . -t cr.liplum.net/mimir/website:<tag>
 docker push cr.liplum.net/mimir/website:<tag>
 ```
 
-### How to deploy
+### Run docker container
 
 First, make a directory as working directory.
 
