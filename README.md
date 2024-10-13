@@ -1,4 +1,4 @@
-# SIT Life Website
+# Xiao Ying Website
 
 ## Install dependencies
 
@@ -41,9 +41,9 @@ docker push cr.liplum.net/mimir/website:<tag>
 
 First, make a directory as working directory.
 
-Create a `docker-compose.yaml` file under the working directory, and copy-paste the following contents.
+Create a `compose.yml` file under the working directory, and copy-paste the following contents.
 
-```yaml
+```yml
 services:
   website:
     image: cr.liplum.net/mimir/website:<tag>
