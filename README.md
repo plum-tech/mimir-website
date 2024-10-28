@@ -58,7 +58,7 @@ Then, create a `nginx.conf` file under the working directory, and copy-paste the
 ```nginx
 server {
   listen 443 ssl;
-  server_name www.xiaoying.life;
+  server_name www.xiaoying.life xiaoying.life;
 
   ssl_certificate /certs/www.xiaoying.life/public.crt;
   ssl_certificate_key /certs/www.xiaoying.life/private.key;
@@ -74,31 +74,12 @@ server {
 
 server {
   listen 80;
-  server_name www.xiaoying.life;
+  server_name www.xiaoying.life xiaoying.life;
 
   location / {
     return 301 https://$host$request_uri;
   }
 }
-
-server {
-  listen 80;
-  server_name xiaoying.life;
-
-  location / {
-    return 301 https://www.xiaoying.life$request_uri;
-  }
-}
-
-server {
-  listen 443 ssl;
-  server_name xiaoying.life;
-
-  location / {
-    return 301 https://www.xiaoying.life$request_uri;
-  }
-}
-
 ```
 
 After that, copy-paste the SSL certificate files of `www.xiaoying.life` to `public.crt` and `private.key` under the working directory.
