@@ -193,7 +193,7 @@ export default function HeaderFramework({
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {trailing &&
             <a href={trailing.href}
-              className="text-sm font-semibold leading-6 text-gray-300"
+              className="text-sm font-semibold leading-6"
               target={trailing.target}>
               {trailing.label} <span aria-hidden="true">&rarr;</span>
             </a>}

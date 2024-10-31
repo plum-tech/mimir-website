@@ -16,6 +16,7 @@ const tabs: HeaderTab[] = [{
   label: "关于",
   href: "/about",
 },]
+
 export default function Header() {
   return <HeaderFramework
     leading={{
@@ -25,6 +26,12 @@ export default function Header() {
         alt="小应生活 Logo"
       />,
       href: "/",
+    }}
+    trailing={{
+      href: "https://auth.xiaoying.life",
+      label: <label>
+        登录
+      </label>
     }}
     tabs={tabs}
   />
