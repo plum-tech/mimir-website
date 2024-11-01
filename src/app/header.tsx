@@ -1,6 +1,8 @@
 import HeaderFramework, { HeaderTab, HeaderLeading } from "@/components/header"
 import Image from "next/image"
 import icon from "./icon.png"
+import { cookies } from 'next/headers'
+import * as jwt from "@/utils/auth"
 
 const tabs: HeaderTab[] = [{
   label: "应用下载",
@@ -18,6 +20,9 @@ const tabs: HeaderTab[] = [{
 },]
 
 export default function Header() {
+  const nextCookies = cookies()
+  const token = nextCookies.get("MIMIR_TOKEN")
+  const payload = token ? jwt.verifySync(token.value, jwt.mimirTokenSecret) : undefined
   return <HeaderFramework
     leading={{
       icon: <Image
@@ -27,11 +32,12 @@ export default function Header() {
       />,
       href: "/",
     }}
-    trailing={{
+    trailing={payload ? {
       href: "https://auth.xiaoying.life",
-      label: <label>
-        登录
-      </label>
+      label: "您的账户"
+    } : {
+      href: "https://auth.xiaoying.life/sign-in",
+      label: "登录"
     }}
     tabs={tabs}
   />

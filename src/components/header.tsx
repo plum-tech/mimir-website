@@ -195,7 +195,9 @@ export default function HeaderFramework({
             <a href={trailing.href}
               className="text-sm font-semibold leading-6"
               target={trailing.target}>
-              {trailing.label} <span aria-hidden="true">&rarr;</span>
+              {trailing.label} <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
             </a>}
         </div>
       </nav>
