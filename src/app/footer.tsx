@@ -34,7 +34,7 @@ const sections: FooterSection[] = [{
   label: "更多",
   items: [{
     label: "小应社区",
-    href: "https://forum.mysit.life",
+    href: "https://sit.xiaoying.life",
     target: "_blank",
   }, {
     label: "SIT-Minecraft",

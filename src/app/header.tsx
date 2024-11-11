@@ -9,7 +9,7 @@ const tabs: HeaderTab[] = [{
   href: "/download",
 }, {
   label: "小应社区",
-  href: "https://forum.mysit.life",
+  href: "https://sit.xiaoying.life",
   target: "_blank",
 }, {
   label: "联系我们",
