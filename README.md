@@ -33,7 +33,7 @@ Ensure you've installed docker on your machine.
 Run the following command to build a docker image with a sepcific tag.
 
 ```bash
-docker build . -t cr.liplum.net/mimir/website:<tag> --platform=linux/amd64
+docker build . --platform=linux/amd64 -t cr.liplum.net/mimir/website:<tag>
 docker push cr.liplum.net/mimir/website:<tag>
 ```
 

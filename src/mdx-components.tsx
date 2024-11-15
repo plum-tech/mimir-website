@@ -43,13 +43,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children }) => (
       <p className='inline'>{children}</p>
     ),
-    img: (props) => (
-      <Image
-        sizes="100vw"
-        style={{ width: '100%', height: 'auto' }}
-        {...(props as ImageProps)}
-      />
-    ),
     ...components,
   }
 }
