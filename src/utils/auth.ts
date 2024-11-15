@@ -1,19 +1,16 @@
 import env from "@liplum/env/next"
 import jwt, { Secret } from "jsonwebtoken"
 
-export const mimirTokenSecret = env("MIMIR_TOKEN_SECRET")
-  .string({ default: "test" }).get()
-
+export const mimirTokenSecret = env("MIMIR_JWT_SECRET")
+  .string({ default: env.NODE_ENV.development ? "test-access" : undefined }).get()
 
 export interface MimirPayload {
   id: string
-  schools: string[]
 }
 
 const validateMimirPayload = (payload: any): payload is MimirPayload => {
   if (typeof payload !== "object") return false
   if (typeof payload.id !== "string") return false
-  if (!Array.isArray(payload.schools)) return false
   return true
 }
 

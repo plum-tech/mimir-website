@@ -2,7 +2,8 @@ import MainFramework from "@/components/main"
 import Title from "@/components/title"
 import dynamic from 'next/dynamic'
 import { redirect } from "next/navigation"
-import { tosVersions } from "../version"
+import { privacyPolicyVersions } from "../version"
+
 
 export default async function Page({
   params
@@ -10,20 +11,20 @@ export default async function Page({
   params: { version: string }
 }) {
   const { version } = params
-  if (!tosVersions.includes(version)) {
-    return redirect(`/tos/${tosVersions[0]}`)
+  if (!privacyPolicyVersions.includes(version)) {
+    return redirect(`/privacy-policy/${privacyPolicyVersions[0]}`)
   }
-  const DynamicToS = dynamic(() => import(`../list/${version}.md`), {
+  const DynamicPriacyPolicy = dynamic(() => import(`../list/${version}.md`), {
     ssr: true
   })
 
   return <MainFramework>
     <Title
-      title="服务协议"
+      title="小应生活隐私政策"
       desc={`${version}版`}
     />
     <div className="px-4 md:px-8 lg:px-16">
-      <DynamicToS />
+      <DynamicPriacyPolicy />
     </div>
   </MainFramework>
 }

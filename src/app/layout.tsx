@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Footer from "./footer";
-import Header from "./header";
-import GoToTopButton from "@/components/go-top";
+import "@/app/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +18,6 @@ export const metadata: Metadata = {
     "上海应用技术大学",
     "上应大",
     "应技大",
-    Buffer.from("5LiK5bqU5bCP6aOO562d", "base64").toString("utf8"),
   ],
   openGraph: {
     type: "website",
@@ -46,10 +42,7 @@ export default function RootLayout({
         <meta name="baidu-site-verification" content="codeva-l41HNYleld" />
       </head>
       <body className={inter.className}>
-        <Header />
         {children}
-        <Footer />
-        <GoToTopButton />
       </body>
     </html>
   );

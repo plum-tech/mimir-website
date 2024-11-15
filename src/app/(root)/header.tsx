@@ -1,6 +1,6 @@
 import HeaderFramework, { HeaderTab, HeaderLeading } from "@/components/header"
 import Image from "next/image"
-import icon from "./icon.png"
+import icon from "@/app/icon.png"
 import { cookies } from 'next/headers'
 import * as jwt from "@/utils/auth"
 
