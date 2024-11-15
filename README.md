@@ -50,6 +50,9 @@ services:
     container_name: mimir.website
     ports:
       - 9001:3000
+    environment:
+      TZ: Asia/Shanghai
+      MIMIR_JWT_SECRET: <secret>
     restart: always
 ```
 
