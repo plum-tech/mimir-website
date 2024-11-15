@@ -104,7 +104,7 @@ const Floating = ({ href, target, popover, children }: {
 }) => {
   let label = <a
     href={href}
-    target={target} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800   hover:bg-gray-400/30"
+    target={target} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-400/30"
   >
     {children}
   </a>
@@ -122,7 +122,7 @@ const Floating = ({ href, target, popover, children }: {
               as="a"
               href={item.href}
               target={item.target}
-              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-800   hover:bg-gray-400/30"
+              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-800  hover:bg-gray-400/30"
             >
               {item.label}
             </DisclosureButton>
@@ -219,30 +219,30 @@ export default function HeaderFramework({
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {tabs &&
-                  tabs.map((tab) => (
-                    <Floating
-                      key={tab.label}
-                      popover={tab.popover}
-                      href={tab.href}
-                      target={tab.target}
-                    >{tab.label}</Floating>
-                  ))
-                }
-              </div>
-              {trailing && <div className="py-6">
-                <a
-                  href={trailing.href}
-                  target={trailing.target}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-50"
-                >
-                  {trailing.label}
-                </a>
-              </div>}
+          <div className="divide-y divide-gray-500/100">
+            <div className="space-y-2 py-6">
+              {tabs &&
+                tabs.map((tab) => (
+                  <Floating
+                    key={tab.label}
+                    popover={tab.popover}
+                    href={tab.href}
+                    target={tab.target}
+                  >
+                    {tab.label}
+                  </Floating>
+                ))
+              }
             </div>
+            {trailing && <div className="py-6">
+              <a
+                href={trailing.href}
+                target={trailing.target}
+                className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-400/30"
+              >
+                {trailing.label}
+              </a>
+            </div>}
           </div>
         </DialogPanel>
       </Dialog>
