@@ -22,7 +22,7 @@ const tabs: HeaderTab[] = [{
 export default function Header() {
   const nextCookies = cookies()
   const token = nextCookies.get("MIMIR_TOKEN")
-  const payload = token ? jwt.verifySync(token.value, jwt.mimirTokenSecret) : undefined
+  const payload = token ? jwt.verifySync(token.value) : undefined
   return <HeaderFramework
     leading={{
       icon: <Image

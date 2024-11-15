@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.1.5",
     "@icons-pack/react-simple-icons": "^10.0.0",
     "@liplum/env": "^0.3.0",
+    "@liplum/lateinit": "^0.0.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.12",

@@ -1,8 +1,11 @@
 import env from "@liplum/env/next"
 import jwt, { Secret } from "jsonwebtoken"
+import lateinit from "@liplum/lateinit"
 
-export const mimirTokenSecret = env("MIMIR_JWT_SECRET")
-  .string({ default: env.NODE_ENV.development ? "test-access" : undefined }).get()
+export const mimirTokenSecret = lateinit(() => {
+  return env("MIMIR_JWT_SECRET")
+    .string({ default: env.NODE_ENV.development ? "test-access" : undefined }).get()
+})
 
 export interface MimirPayload {
   id: string
@@ -33,7 +36,7 @@ export const verify = async (
 }
 
 export const verifySync = (
-  token: string, secret: Secret
+  token: string, secret: Secret = mimirTokenSecret()
 ): MimirPayload | undefined => {
   try {
     const info = jwt.verify(token, secret, { complete: true })
