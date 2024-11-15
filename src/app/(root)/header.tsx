@@ -34,7 +34,7 @@ export default function Header() {
     }}
     trailing={payload ? {
       href: "https://auth.xiaoying.life",
-      label: "您的账户"
+      label: "您的账号"
     } : {
       href: "https://auth.xiaoying.life/sign-in",
       label: "登录"

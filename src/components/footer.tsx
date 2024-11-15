@@ -1,6 +1,5 @@
 import React, { HTMLAttributeAnchorTarget, ReactNode } from "react"
 
-
 export interface FooterSection {
   label: string
   items?: FooterSectionItem[]
