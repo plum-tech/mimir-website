@@ -1,14 +1,3 @@
-export type ReleaseNote = {
-  "zh-Hans": string;
-  en?: string | undefined;
-}
-
-export type AndroidAssets = {
-  fileName: string;
-  defaultSrc: string;
-  src: Record<string, string>;
-}
-
 export enum ImportanceLevel {
   critical = "critical",
   high = "high",
@@ -16,13 +5,33 @@ export enum ImportanceLevel {
   low = "low",
 }
 
-export type VersionInfo = {
+export enum AndroidAbi {
+  arm64 = "arm64",
+  arm32 = "arm32",
+  x86_64 = "x86_64",
+}
+
+export interface PerAbiSrc {
+  abi: AndroidAbi
+  url?: string
+}
+
+export interface InstallerSrc {
+  installer: string
+  url?: string
+}
+
+export interface ReleaseNote {
+  "zh-Hans": string
+  en?: string | undefined
+}
+
+export interface AndroidVersionInfo {
   version: string
-  time: string
+  createdAt: Date
   importance: ImportanceLevel
+  defaultSrc: string
   releaseNote: ReleaseNote
-  assets: {
-    Android: AndroidAssets
-  }
-  delayInMinute: number
+  perAbiSrc: PerAbiSrc[]
+  perInstallerSrc: InstallerSrc[]
 }

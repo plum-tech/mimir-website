@@ -4,16 +4,16 @@ import Title from "@/components/title";
 import { LinkButton } from "@/components/button"
 import Image from "next/image";
 import downloadOnAppStoreBadge from "./download-on-the-app-store-badge.svg"
-import { VersionInfo } from "./model";
+import { AndroidAbi, AndroidVersionInfo, PerAbiSrc } from "./model";
 import { ReleaseInfoCard } from "./comp";
 import { WechatOpenInBrowserOverlay } from "@/components/wechat";
 import { ToLocaleString } from "@/components/date"
 
-export const revalidate = 60 * 60 // 60 minutes
+export const revalidate = 10 * 60 // 60 minutes
 
 export default async function Page() {
-  const latest = await fetch("https://version.xiaoying.life/v1/release/latest")
-  const info = await latest.json() as VersionInfo
+  const latest = await fetch("https://version.xiaoying.life/v1/release/android/latest/info")
+  const info = await latest.json() as AndroidVersionInfo
 
   return <MainFramework>
     <Title
@@ -22,11 +22,11 @@ export default async function Page() {
     />
     <ReleaseInfoCard
       version={`v${info.version}`}
-      releaseTime={<ToLocaleString date={new Date(info.time)} />}
+      releaseTime={<ToLocaleString date={new Date(info.createdAt)} />}
       releaseNote={info.releaseNote}
     />
     <div className="grid text-center grid-cols-2 p-4 gap-8">
-      <AndroidCard link={info.assets.Android.defaultSrc} />
+      <AndroidCard defaultSrc={info.defaultSrc} perAbiSrc={info.perAbiSrc} />
       <IosCard />
     </div>
     <DownloadSourceAds />
@@ -34,8 +34,15 @@ export default async function Page() {
   </MainFramework>
 }
 
-const AndroidCard = ({ link }: {
-  link: string
+const abi2Name = {
+  [AndroidAbi.arm32]: "32位",
+  [AndroidAbi.arm64]: "64位",
+  [AndroidAbi.x86_64]: "x64",
+}
+
+const AndroidCard = ({ perAbiSrc, defaultSrc }: {
+  defaultSrc: string
+  perAbiSrc: PerAbiSrc[]
 }) => {
   return <Card header={
     <h2 id="android" className="text-xl">
@@ -47,13 +54,20 @@ const AndroidCard = ({ link }: {
         应用商店
       </LinkButton>
       {
-        link &&
-        <a target="_blank" href={link} className="link block">
-          下载APK文件
-        </a>
+        perAbiSrc?.length && new Set(perAbiSrc.map(it => it.url)).size > 1 ? (
+          perAbiSrc.filter(it => it.url).map(it => (
+            <a target="_blank" key={it.abi} href={it.url} className="link block">
+              {`下载${abi2Name[it.abi]}`}
+            </a>
+          ))
+        ) : (
+          <a target="_blank" href={defaultSrc} className="link block">
+            下载APK文件
+          </a>
+        )
       }
     </div>
-  </Card>
+  </Card >
 }
 
 const IosCard = () => {
