@@ -11,13 +11,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Allows customizing built-in components, e.g. to add styling.
     h1: ({ children }) => (
-      <h1 className='text-2xl'>{children}</h1>
+      <h1 className='text-2xl'># {children}</h1>
     ),
     h2: ({ children }) => (
-      <h1 className='text-xl'>{children}</h1>
+      <h1 className='text-xl'>## {children}</h1>
     ),
     h3: ({ children }) => (
-      <h1 className='text-lg'>{children}</h1>
+      <h1 className='text-lg'>### {children}</h1>
     ),
     a: ({ href, children }) => (
       <a className='link' href={href}>{children}</a>
@@ -41,7 +41,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       >{children}</ul>
     ),
     p: ({ children }) => (
-      <p className='inline'>{children}</p>
+      <><p className='inline'>{children}</p><br /></>
     ),
     ...components,
   }
