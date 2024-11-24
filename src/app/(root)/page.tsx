@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <MainFramework>
       <Title
-        title="小应生活"
+        title={"小应生活"}
         desc={<>
-          校园生活就用小应生活。<br />
+          校园生活就用小应生活<br />
           上应人必备的App！
         </>}
       />
