@@ -17,14 +17,14 @@ export default function Home() {
       <Title
         title="小应生活"
         desc={<>
-          你的校园生活，从未如此简单。<br />
+          校园生活就用小应生活。<br />
           上应人必备的App！
         </>}
       />
 
       <HomeButtonGroup actions={[{
         title: "应用下载",
-        desc: "下载最新版小应生活App，适用于 iOS 和 Android",
+        desc: "下载最新的小应生活，适用于 iOS 与 Android",
         href: "/download",
       }, {
         title: "联系我们",
