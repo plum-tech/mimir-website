@@ -17,7 +17,7 @@ const validateMimirPayload = (payload: any): payload is MimirPayload => {
   return true
 }
 
-export const verify = async (
+export const verifyMimirToken = async (
   token: string, secret: string = mimirTokenSecret()
 ): Promise<MimirPayload | undefined> => {
   const { payload } = await jwtVerify(token, new TextEncoder().encode(secret))

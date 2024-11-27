@@ -2,7 +2,7 @@ import HeaderFramework, { HeaderTab, HeaderLeading } from "@/components/header"
 import Image from "next/image"
 import icon from "./header-icon.png"
 import { cookies } from 'next/headers'
-import * as jwt from "@/utils/auth"
+import { verifyMimirToken } from "@/utils/auth"
 
 const tabs: HeaderTab[] = [{
   label: "应用下载",
@@ -22,7 +22,7 @@ const tabs: HeaderTab[] = [{
 export default async function Header() {
   const nextCookies = cookies()
   const token = nextCookies.get("MIMIR_TOKEN")
-  const payload = token ? await jwt.verify(token.value) : undefined
+  const payload = token ? await verifyMimirToken(token.value) : undefined
   return <HeaderFramework
     leading={{
       icon: <Image
