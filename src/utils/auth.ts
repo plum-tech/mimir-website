@@ -1,6 +1,6 @@
 import env from "@liplum/env/next"
-import jwt, { Secret } from "jsonwebtoken"
 import lateinit from "@liplum/lateinit"
+import { jwtVerify, } from 'jose'
 
 export const mimirTokenSecret = lateinit(() => {
   return env("MIMIR_JWT_SECRET")
@@ -18,33 +18,10 @@ const validateMimirPayload = (payload: any): payload is MimirPayload => {
 }
 
 export const verify = async (
-  token: string, secret: Secret
+  token: string, secret: string = mimirTokenSecret()
 ): Promise<MimirPayload | undefined> => {
-  return new Promise<MimirPayload | undefined>((resolve, reject) => {
-    jwt.verify(token, secret, { complete: true }, (err, info) => {
-      if (err || info === undefined) {
-        resolve(undefined)
-      } else {
-        const payload = info.payload
-        if (validateMimirPayload(payload)) {
-          resolve(payload)
-        }
-        resolve(undefined)
-      }
-    })
-  })
-}
-
-export const verifySync = (
-  token: string, secret: Secret = mimirTokenSecret()
-): MimirPayload | undefined => {
-  try {
-    const info = jwt.verify(token, secret, { complete: true })
-    const payload = info.payload
-    if (validateMimirPayload(payload)) {
-      return payload
-    }
-  } catch {
-    return
+  const { payload } = await jwtVerify(token, new TextEncoder().encode(secret))
+  if (validateMimirPayload(payload)) {
+    return payload
   }
 }

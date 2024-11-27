@@ -19,10 +19,10 @@ const tabs: HeaderTab[] = [{
   href: "/about",
 },]
 
-export default function Header() {
+export default async function Header() {
   const nextCookies = cookies()
   const token = nextCookies.get("MIMIR_TOKEN")
-  const payload = token ? jwt.verifySync(token.value) : undefined
+  const payload = token ? await jwt.verify(token.value) : undefined
   return <HeaderFramework
     leading={{
       icon: <Image

@@ -20,7 +20,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
-    "jsonwebtoken": "^9.0.2",
+    "jose": "^5.9.6",
     "next": "^14.2.10",
     "next-mdx-remote": "^5.0.0",
     "react": "^18",
@@ -32,7 +32,6 @@
     "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
