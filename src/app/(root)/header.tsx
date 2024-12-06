@@ -34,10 +34,12 @@ export default async function Header() {
     }}
     trailing={payload ? {
       href: "https://auth.xiaoying.life",
-      label: "您的账号"
+      label: "您的账号",
+      target: "_self",
     } : {
       href: "https://auth.xiaoying.life/sign-in",
-      label: "登录"
+      label: "登录",
+      target: "_self",
     }}
     tabs={tabs}
   />

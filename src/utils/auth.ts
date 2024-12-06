@@ -8,12 +8,12 @@ export const mimirTokenSecret = lateinit(() => {
 })
 
 export interface MimirPayload {
-  id: string
+  sub: string
 }
 
 const validateMimirPayload = (payload: any): payload is MimirPayload => {
   if (typeof payload !== "object") return false
-  if (typeof payload.id !== "string") return false
+  if (typeof payload.sub !== "string") return false
   return true
 }
 
