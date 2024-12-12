@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/app/globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "小应生活",
@@ -41,7 +38,9 @@ export default function RootLayout({
         <meta itemProp="image" content="https://www.xiaoying.life/icon-filled-256x.png" />
         <meta name="baidu-site-verification" content="codeva-btW1cVqDcz" />
       </head>
-      <body className={`${inter.className}`}>
+      <body
+        className={`antialiased`}
+      >
         {children}
       </body>
     </html>
