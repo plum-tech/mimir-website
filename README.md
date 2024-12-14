@@ -30,7 +30,7 @@ pnpm build
 
 Ensure you've installed docker on your machine.
 
-Run the following command to build a docker image with a sepcific tag.
+Run the following command to build a docker image with a specific tag.
 
 ```bash
 docker build . --platform=linux/amd64 -t cr.liplum.net/mimir/website:<tag>
