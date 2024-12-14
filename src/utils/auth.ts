@@ -20,8 +20,12 @@ const validateMimirPayload = (payload: any): payload is MimirPayload => {
 export const verifyMimirToken = async (
   token: string, secret: string = mimirTokenSecret()
 ): Promise<MimirPayload | undefined> => {
-  const { payload } = await jwtVerify(token, new TextEncoder().encode(secret))
-  if (validateMimirPayload(payload)) {
-    return payload
+  try {
+    const { payload } = await jwtVerify(token, new TextEncoder().encode(secret))
+    if (validateMimirPayload(payload)) {
+      return payload
+    }
+  } catch {
+    return
   }
 }
