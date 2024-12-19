@@ -1,6 +1,6 @@
 import { Card } from "@/components/card"
-import { ContributorInfo } from "./list"
-import { ContributorContact } from "./list"
+import { ContributorInfo } from "./model"
+import { ContributorContact } from "./model"
 
 
 const ContributorContactRow = ({ contact }: { contact: ContributorContact }) => {
@@ -17,7 +17,7 @@ const ContributorContactRow = ({ contact }: { contact: ContributorContact }) => 
     case 'wechat':
       return <div>微信：{contact.content}</div>;
     case 'url':
-      return <div>网址：
+      return <div>{contact.label}：
         <a href={contact.content} className="link">{contact.content}</a>
       </div>
   }

@@ -1,11 +1,9 @@
 import MainFramework from "@/components/main";
 import Title from "@/components/title";
-import contributorsJson from "./contributors.json";
 import { ContributorCard } from "./components";
-import { ContributorInfo } from "./list";
+import { ContributorInfo } from "./model";
 import { ReactNode } from "react";
-
-const contributors = contributorsJson as ContributorInfo[]
+import { contributors } from "./contributors";
 
 const activeContributors = contributors.filter(info => !info.endDate);
 const historicalContributors = contributors.filter(info => info.endDate);
